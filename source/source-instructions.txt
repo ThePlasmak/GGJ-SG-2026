@@ -1,0 +1,12 @@
+REMEMBER TO DELETE THIS FILE
+
+(From GGJ Game Submissions Instructions: https://docs.google.com/presentation/d/1HgLCEmNb0sh20iA5lALjbQLm-TI62eTuVbk274bK32s/edit?usp=sharing)
+
+YOU MAY CHOOSE TO UPLOAD SOURCE CODE OR OTHER SOURCE FILES, BUT IT IS NOT REQUIRED. 
+
+This is for the actual source files, like C or C++ files and assets like sound, music and art. 
+Do not include game engines or tools.
+You can include your project folders from Unity or GameMaker.
+You can write and include a README file that explains how to use your code to make the game.
+For non-digital games, your PDF instructions would go here.
+Test to make sure you have everything!

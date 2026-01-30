@@ -1,0 +1,8 @@
+REMEMBER TO DELETE THIS FILE
+
+(From GGJ Game Submissions Instructions: https://docs.google.com/presentation/d/1HgLCEmNb0sh20iA5lALjbQLm-TI62eTuVbk274bK32s/edit?usp=sharing)
+
+This is for screenshots and videos about your game.
+
+Include at least one 1024x768 screenshot of your game.
+If you have links to YouTube videos or other online resources, put them in a text file here.

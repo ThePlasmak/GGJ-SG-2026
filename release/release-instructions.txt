@@ -1,0 +1,9 @@
+REMEMBER TO DELETE THIS FILE
+
+(From GGJ Game Submissions Instructions: https://docs.google.com/presentation/d/1HgLCEmNb0sh20iA5lALjbQLm-TI62eTuVbk274bK32s/edit?usp=sharing)
+
+This is for the executable version of your game
+
+If possible, you can include multiple versions for different architectures (like Mac OS X, Windows versions and APK files)
+
+Include a README file that explains what OS or environment is needed to run the game
