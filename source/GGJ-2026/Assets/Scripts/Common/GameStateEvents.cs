@@ -6,10 +6,12 @@ using UnityEngine;
 public class GameStateEnteredEvent : GlobalEvent<GameStateEnteredEvent>
 {
     public GameState EnteredState { get; private set; }
+    public float TargetDuration { get; private set; }
 
-    public GameStateEnteredEvent(GameState enteredState)
+    public GameStateEnteredEvent(GameState enteredState, float duration)
     {
         EnteredState = enteredState;
+        TargetDuration = duration;
     }
 }
 
@@ -18,12 +20,10 @@ public class GameStateEnteredEvent : GlobalEvent<GameStateEnteredEvent>
 /// </summary>
 public class GameStateResultEvent : GlobalEvent<GameStateResultEvent>
 {
-    public GameState TargetState { get; private set; }
     public bool IsWin { get; private set; }
 
-    public GameStateResultEvent(GameState targetState, bool isWin)
+    public GameStateResultEvent(bool isWin)
     {
-        TargetState = targetState;
         IsWin = isWin;
     }
 }

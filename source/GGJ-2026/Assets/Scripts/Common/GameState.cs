@@ -2,6 +2,8 @@ public enum GameState
 {
     NotInitialized,
     StartMenu,
+    GameSelection,
+
     HandShakeMatching,
-    // Add more states here
+    FindABreak,
 }

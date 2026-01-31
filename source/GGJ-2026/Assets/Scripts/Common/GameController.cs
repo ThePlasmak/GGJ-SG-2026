@@ -4,9 +4,11 @@ public class GameController : MonoBehaviour
 {
     [Header("Debugging Purposes")]
     [SerializeField] private GameState DebugState;
+    [SerializeField] private float DebugDuration;
     [SerializeField] private bool ForceToDebugState = false;
 
     private GameState CurrentState { get; set; } = GameState.NotInitialized;
+    public float TotalHealth { get; private set; } = 100.0f;
 
     private void Awake()
     {
@@ -15,21 +17,21 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        SetState(GameState.StartMenu);
+        SetState(GameState.StartMenu, 0.0f);
     }
 
     private void Update()
     {
         if(ForceToDebugState)
         {
-            SetState(DebugState);
+            SetState(DebugState, DebugDuration);
             ForceToDebugState = false;
         }
     }
 
-    private void SetState(GameState newState)
+    private void SetState(GameState newState, float targetDuration)
     {
-        if(CurrentState == newState)
+        if (CurrentState == newState)
         {
             return;
         }
@@ -49,6 +51,6 @@ public class GameController : MonoBehaviour
 
 
         // then transition to next state
-        SetState(ev.TargetState);
+        SetState(GameState.GameSelection, 0.0f);
     }
 }
