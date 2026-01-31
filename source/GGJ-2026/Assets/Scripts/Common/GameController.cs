@@ -85,7 +85,14 @@ public class GameController : MonoBehaviour
         string sceneName = GameStateMapping.GetSceneName(CurrentState);
         if (sceneName.Length > 0)
         {
-            SceneTransition.Instance.LoadScene(sceneName);
+            if(SceneTransition.Instance != null)
+            {
+                SceneTransition.Instance.LoadScene(sceneName);
+            }
+            else
+            {
+                SceneManager.LoadScene(sceneName);
+            }
         }
         else
         {
