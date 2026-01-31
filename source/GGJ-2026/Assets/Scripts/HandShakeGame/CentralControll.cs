@@ -5,6 +5,7 @@ public class CentralControll : MonoBehaviour
     // Start is called o
     // nce before the first execution of Update after the MonoBehaviour is created
     [SerializeField] GameObject everything;
+    [SerializeField] GameObject options;
     
     void Start()
     {
@@ -18,12 +19,13 @@ public class CentralControll : MonoBehaviour
         GameStateExitedEvent.AddListener(HandleGameStateExitEvent);
     }
 
-    
+
     void HandleGameStateEnteredEvent(GameStateEnteredEvent ev)
     {
         if(ev.EnteredState==GameState.HandShakeMatching){
             print("2");
             everything.SetActive(true);
+            options.SetActive(true);
         }
     }
     void HandleGameStateExitEvent(GameStateExitedEvent ev)
