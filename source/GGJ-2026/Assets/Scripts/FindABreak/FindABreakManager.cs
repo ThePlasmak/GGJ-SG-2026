@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class FindABreakManager : MonoBehaviour
@@ -123,6 +124,11 @@ public class FindABreakManager : MonoBehaviour
 
     private bool TryInterject()
     {
+        if(EventSystem.current.IsPointerOverGameObject())
+        {
+            return false;
+        }
+
         if(!(Mouse.current.leftButton.wasPressedThisFrame))
         {
             return false;
