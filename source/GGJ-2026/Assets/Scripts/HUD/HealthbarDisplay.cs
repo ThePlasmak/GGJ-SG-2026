@@ -6,14 +6,18 @@ using UnityEngine.UI;
 public class HealthbarDisplay : MonoBehaviour
 {
     [System.Serializable]
-    public struct StatusDisplaySetting
+    public class StatusDisplaySetting
     {
-        [SerializeField] private float healthPercent;
+        [SerializeField] private float minHealthPercent;
         [SerializeField] private Sprite icon;
-        [SerializeField] private float shakeStrength;
+        [SerializeField] private float minShakeStrength;
+        [SerializeField] private float maxShakeStrength;
+        [SerializeField] private float shakeSpeed;
 
-        public float HealthPercent { get { return healthPercent; } }
-        public float ShakeStrength { get { return shakeStrength; } }
+        public float MinHealthPercent { get { return minHealthPercent; } }
+        public float MinShakeStrength { get { return minShakeStrength; } }
+        public float MaxShakeStrength { get { return maxShakeStrength; } }
+        public float ShakeSpeed { get { return shakeSpeed; } }
         public Sprite Icon { get { return icon; } }
     }
 
@@ -25,40 +29,67 @@ public class HealthbarDisplay : MonoBehaviour
     [SerializeField] private RectTransform HealthbarFill;
 
     private float CurrentHealthPercent { get; set; }
-    private float ShakeStrength { get; set; }
+    private StatusDisplaySetting CurrentStatusDisplaySetting { get; set; } = null;
+
+    private Vector2 PreviousStatusShakeOffset = Vector2.zero;
+    private Vector2 TargetStatusShakeOffset = Vector2.zero;
+    private float TargetStatusShakeTotalDuration = 0.0f;
+    private float TargetStatusShakeCurrentDuration = 0.0f;
 
     private void Start()
     {
         GameController.Instance.OnHealthChanged.AddListener(HandleHealthChanged);
+        HandleHealthChanged();
     }
 
     private void Update()
     {
-        Vector2 statusIconOffset = Vector2.zero;
-        if(ShakeStrength > 0.0f)
+        if (CurrentStatusDisplaySetting.MaxShakeStrength <= 0.0f
+            || CurrentStatusDisplaySetting.MinShakeStrength > CurrentStatusDisplaySetting.MaxShakeStrength)
         {
-            statusIconOffset = Random.insideUnitCircle * ShakeStrength;
+            return;
         }
 
-        StatusIcon.rectTransform.anchoredPosition = statusIconOffset;
+        TargetStatusShakeCurrentDuration += Time.deltaTime;
+
+        if (TargetStatusShakeCurrentDuration >= TargetStatusShakeTotalDuration)
+        {
+            PreviousStatusShakeOffset = TargetStatusShakeOffset;
+            TargetStatusShakeCurrentDuration -= TargetStatusShakeTotalDuration;
+
+            float randomStrength = Random.Range(CurrentStatusDisplaySetting.MinShakeStrength, CurrentStatusDisplaySetting.MaxShakeStrength);
+            TargetStatusShakeOffset = Random.insideUnitCircle.normalized * randomStrength;
+            TargetStatusShakeTotalDuration += randomStrength / CurrentStatusDisplaySetting.ShakeSpeed;
+        }
+
+        StatusIcon.rectTransform.anchoredPosition = Vector2.Lerp(PreviousStatusShakeOffset, TargetStatusShakeOffset, 
+            TargetStatusShakeCurrentDuration / TargetStatusShakeTotalDuration);
     }
 
     private void HandleHealthChanged()
     {
         CurrentHealthPercent = GameController.Instance.CurrentHealthPercent;
 
-        foreach(StatusDisplaySetting setting in StatusDisplaySettings)
+        StatusDisplaySetting newSetting = null;
+        foreach (StatusDisplaySetting setting in StatusDisplaySettings)
         {
-            if(CurrentHealthPercent >= setting.HealthPercent)
+            if(CurrentHealthPercent >= setting.MinHealthPercent)
             {
-                StatusIcon.sprite = setting.Icon;
-                ShakeStrength = setting.ShakeStrength;
+                newSetting = setting;
                 break;
             }
         }
+        if (newSetting != CurrentStatusDisplaySetting)
+        {
+            CurrentStatusDisplaySetting = newSetting;
+            StatusIcon.sprite = CurrentStatusDisplaySetting.Icon;
+            StatusIcon.rectTransform.anchoredPosition = Vector2.zero;
+            PreviousStatusShakeOffset = TargetStatusShakeOffset = Vector2.zero;
+            TargetStatusShakeTotalDuration = TargetStatusShakeCurrentDuration = 0.0f;
+        }
 
         Vector2 fillPosition = HealthbarFill.anchoredPosition;
-        fillPosition.y = HealthbarFill.sizeDelta.y / 2.0f * (1.0f - CurrentHealthPercent);
+        fillPosition.y = HealthbarFill.sizeDelta.y * (1.0f - CurrentHealthPercent);
         HealthbarFill.anchoredPosition = fillPosition;
     }
 }
