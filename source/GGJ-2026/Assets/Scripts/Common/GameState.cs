@@ -4,6 +4,8 @@ public enum GameState
 {
     NotInitialized,
     StartMenu,
+    WinScreen,
+    LoseScreen,
     GameSelection,
 
     // Add minigame states here
@@ -18,6 +20,8 @@ public static class GameStateMapping
 {
     private static Dictionary<GameState, string> GameStateToSceneMapping = new Dictionary<GameState, string>()
     {
+        { GameState.WinScreen, "Main" },
+        { GameState.LoseScreen, "Main" },
         { GameState.HandShakeMatching, "HandShakeGame" },
         { GameState.FindABreak, "FindABreak" },
     };

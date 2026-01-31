@@ -10,6 +10,9 @@ public class GameController : MonoBehaviour
     [SerializeField] private float SuccessHeal = 10.0f;
     [SerializeField] private UnityEvent onHealthChanged;
 
+    [Header("Win Condition")]
+    [SerializeField] private float RequiredClearedMinigamesCount = 10;
+
     public UnityEvent OnHealthChanged { get { return onHealthChanged; } }
 
     [Header("Debugging Purposes")]
@@ -44,8 +47,7 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        ResetStats();
-        SetState(GameState.GameSelection, 0.0f);
+        SetState(GameState.StartMenu, 0.0f);
     }
 
     private void OnDestroy()
@@ -60,6 +62,12 @@ public class GameController : MonoBehaviour
             SetState(DebugState, DebugDuration);
             ForceToDebugState = false;
         }
+    }
+
+    public void StartGame()
+    {
+        ResetStats();
+        SetState(GameState.GameSelection, 0.0f);
     }
 
     public void SetState(GameState newState, float targetDuration)
@@ -103,7 +111,18 @@ public class GameController : MonoBehaviour
             ++ClearedMinigamesCount;
         }
 
-        SetState(GameState.GameSelection, 0.0f);
+        if(ClearedMinigamesCount >= RequiredClearedMinigamesCount)
+        {
+            SetState(GameState.WinScreen, 0.0f);
+        }
+        else if(CurrentHealth <= 0.0f)
+        {
+            SetState(GameState.LoseScreen, 0.0f);
+        }
+        else
+        {
+            SetState(GameState.GameSelection, 0.0f);
+        }
     }
 
     private void ResetStats()
