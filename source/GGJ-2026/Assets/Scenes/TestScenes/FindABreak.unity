@@ -319,6 +319,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22305c6507e4a2c438cc7db1168a02b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameController
+  TotalHealth: 100
+  FailDamage: 10
+  SuccessHeal: 10
+  onHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
   DebugState: 4
   DebugDuration: 5
   ForceToDebugState: 0

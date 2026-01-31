@@ -1,8 +1,10 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class FindABreakManager : MonoBehaviour
 {
+    [SerializeField] private FindABreakSpeakerScript Speaker;
     [SerializeField] private Transform CharacterRoot;
     [SerializeField] private GameObject CharacterPrefab;
     [SerializeField] private float DurationPerCharacter = 0.5f;
@@ -13,6 +15,8 @@ public class FindABreakManager : MonoBehaviour
 
     private int TotalCharacterCount = 0;
     private int TargetCharacter = 0;
+
+    private Coroutine delayedResultCoroutine = null;
 
     private void Awake()
     {
@@ -33,6 +37,11 @@ public class FindABreakManager : MonoBehaviour
 
     private void Update()
     {
+        if(delayedResultCoroutine != null)
+        {
+            return;
+        }
+
         CurrentDuration += Time.deltaTime;
 
         if(TryInterject())
@@ -54,6 +63,15 @@ public class FindABreakManager : MonoBehaviour
 
         GenerateCharacters();
         UpdateSelectedCharacter();
+
+        Speaker.IdleSpriteUpdateDuration = DurationPerCharacter / 4;
+        Speaker.SetCurrentState(FindABreakSpeakerScript.State.Idle);
+
+        if(delayedResultCoroutine != null)
+        {
+            StopCoroutine(delayedResultCoroutine);
+            delayedResultCoroutine = null;
+        }
 
         gameObject.SetActive(true);
     }
@@ -103,7 +121,7 @@ public class FindABreakManager : MonoBehaviour
 
         if(currentCharacter >= TotalCharacterCount)
         {
-            SendResult(false);
+            SendResult(false, 1.0f);
         }
     }
 
@@ -115,7 +133,7 @@ public class FindABreakManager : MonoBehaviour
         }
 
         bool isWin = GetCurrentCharacter() == TargetCharacter;
-        SendResult(isWin);
+        SendResult(isWin, 1.0f);
 
         return true;
     }
@@ -125,9 +143,27 @@ public class FindABreakManager : MonoBehaviour
         return Mathf.FloorToInt(CurrentDuration / DurationPerCharacter);
     }
 
-    private void SendResult(bool isWin)
+    private void SendResult(bool isWin, float delay)
     {
+        if(delay <= 0.0f)
+        {
+            GameStateResultEvent ev = new GameStateResultEvent(isWin);
+            ev.Broadcast();
+            return;
+        }
+
+        Speaker.SetCurrentState(isWin ? FindABreakSpeakerScript.State.Success : FindABreakSpeakerScript.State.Fail);
+
+        delayedResultCoroutine = StartCoroutine(SendResultDelayed(isWin, delay));
+    }
+
+    private IEnumerator SendResultDelayed(bool isWin, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
         GameStateResultEvent ev = new GameStateResultEvent(isWin);
         ev.Broadcast();
+
+        delayedResultCoroutine = null;
     }
 }
