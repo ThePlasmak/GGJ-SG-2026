@@ -14,7 +14,6 @@ public class ShakeHand : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        print("!");
         targetMoves=moves[Random.Range(0,2)];
         RevealHand();
     }
@@ -35,30 +34,28 @@ public class ShakeHand : MonoBehaviour
     }
     void RevealHand()
     {
-        StartCoroutine(OpenParticles());
+        // StartCoroutine(OpenParticles());
     }
 
-    IEnumerator OpenParticles()
-    {
-        yield return new WaitForSeconds(10);
-        particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-        if (handType == "empty")
-        {
-            FindAnyObjectByType<TurnOffOptions>().DeactivateOptions();
-        }
-        if (targetMoves == handType)
-        {
-            won=true;
-        }
-        else
-        {
-            won=false;
-        }
-        yield return new WaitForSeconds(2);
-        // show res
-
-        GameStateResultEvent ev = new GameStateResultEvent(won);
-        ev.Broadcast();
-    }
+    // IEnumerator OpenParticles()
+    // {
+    //     yield return new WaitForSeconds(10);
+    //     particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+    //     if (handType == "empty")
+    //     {
+    //         FindAnyObjectByType<TurnOffOptions>().DeactivateOptions();
+    //     }
+    //     if (targetMoves == handType)
+    //     {
+    //         won=true;
+    //     }
+    //     else
+    //     {
+    //         won=false;
+    //     }
+    //     yield return new WaitForSeconds(2);
+    //     GameStateResultEvent ev = new GameStateResultEvent(won);
+    //     ev.Broadcast();
+    // }
     
 }
