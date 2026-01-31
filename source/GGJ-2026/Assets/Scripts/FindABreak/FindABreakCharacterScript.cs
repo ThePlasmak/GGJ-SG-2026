@@ -1,9 +1,15 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Image))]
 public class FindABreakCharacterScript : MonoBehaviour
 {
+    [Header("Sprite Settings")]
+    [SerializeField] private List<Sprite> DefaultSprites;
+    [SerializeField] private Sprite TargetSprite;
+    [SerializeField] private Image Icon;
+
     private Image Image = null;
     private bool IsTarget = false;
 
@@ -16,18 +22,13 @@ public class FindABreakCharacterScript : MonoBehaviour
 
         IsTarget = isTarget;
 
-        Image.color = IsTarget ? Color.red : Color.black;
+
+        Image.color = (IsTarget) ? Color.green : Color.red;
+        Icon.sprite = (IsTarget) ? TargetSprite : DefaultSprites[Random.Range(0, DefaultSprites.Count)];
     }
 
     public void SetHighlight(bool isHighlighted)
     {
-        if(IsTarget)
-        {
-            Image.color = isHighlighted ? Color.green : Color.red;
-        }
-        else
-        {
-            Image.color = isHighlighted ? Color.yellow : Color.black;
-        }
+        Image.enabled = isHighlighted;
     }
 }
