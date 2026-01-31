@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: b2e73f8bd215f744a9707fd52a4f506d
+guid: dd0fbb5a448720b48a50789269d987d8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5656228833315216993
-    second: TempRockHand_0
+      213: -5419889345025793733
+    second: HUD_CringePhases_0
+  - first:
+      213: 7390994850157022599
+    second: HUD_CringePhases_1
+  - first:
+      213: 7161536795274567612
+    second: HUD_CringePhases_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -97,32 +103,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -139,13 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TempRockHand_0
+      name: HUD_CringePhases_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 504
-        height: 249
+        x: 7
+        y: 5
+        width: 131
+        height: 109
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +134,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f91ace518d90181b0800000000000000
-      internalID: -5656228833315216993
+      spriteID: b3120d34b5fa8c4b0800000000000000
+      internalID: -5419889345025793733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD_CringePhases_1
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 5
+        width: 134
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78dc95438a6129660800000000000000
+      internalID: 7390994850157022599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD_CringePhases_2
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 0
+        width: 144
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbfda3895c3e26360800000000000000
+      internalID: 7161536795274567612
       vertices: []
       indices: 
       edges: []
@@ -174,7 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      TempRockHand_0: -5656228833315216993
+      HUD_CringePhases_0: -5419889345025793733
+      HUD_CringePhases_1: 7390994850157022599
+      HUD_CringePhases_2: 7161536795274567612
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

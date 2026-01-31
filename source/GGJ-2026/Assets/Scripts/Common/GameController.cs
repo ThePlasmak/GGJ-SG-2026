@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameController : MonoBehaviour
 {
@@ -6,6 +7,9 @@ public class GameController : MonoBehaviour
     [SerializeField] private float TotalHealth = 100.0f;
     [SerializeField] private float FailDamage = 10.0f;
     [SerializeField] private float SuccessHeal = 10.0f;
+    [SerializeField] private UnityEvent onHealthChanged;
+
+    public UnityEvent OnHealthChanged { get { return onHealthChanged; } }
 
     [Header("Debugging Purposes")]
     [SerializeField] private GameState DebugState;
@@ -36,6 +40,7 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
+        ResetStats();
         SetState(GameState.GameSelection, 0.0f);
     }
 
@@ -73,6 +78,7 @@ public class GameController : MonoBehaviour
     {
         float healthChange = (ev.IsWin) ? SuccessHeal : -FailDamage;
         CurrentHealth = Mathf.Clamp(CurrentHealth + healthChange, 0, TotalHealth);
+        OnHealthChanged.Invoke();
 
         if(ev.IsWin)
         {
@@ -80,5 +86,13 @@ public class GameController : MonoBehaviour
         }
 
         SetState(GameState.GameSelection, 0.0f);
+    }
+
+    private void ResetStats()
+    {
+        ClearedMinigamesCount = 0;
+
+        CurrentHealth = TotalHealth;
+        OnHealthChanged.Invoke();
     }
 }
