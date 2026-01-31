@@ -21,7 +21,6 @@ public class Swapper : MonoBehaviour, IConstants
     {
         Vector2 currentDrag = new Vector2(0,0);
         GameObject currentObj = null;
-        List<GameObject> updateList = new List<GameObject>();
 
         for (int i = 0; i < tokens.Count; i++)
         {
@@ -30,33 +29,30 @@ public class Swapper : MonoBehaviour, IConstants
                 currentDrag = tokens[i].transform.Find("Text").GetComponent<RectTransform>().anchoredPosition;
                 currentObj = tokens[i];
             }
-            else
-                updateList.Add(tokens[i]);
         }
         if (currentObj == null)
         {
-            Debug.Log("No dragging");
             SnapTokens();
             return;
         }
 
-        bool insert = false;
-        for (int i = 0; i < updateList.Count; i++)
+        List<GameObject> updateList = new List<GameObject>();
+        int j = 0;
+        Debug.Log(tokens[j].transform.Find("Text").GetComponent<RectTransform>().anchoredPosition.x < currentDrag.x);
+        while (j < tokens.Count && ((tokens[j].transform.Find("Text").GetComponent<Draggable>().isDragging()) ||
+            tokens[j].transform.Find("Text").GetComponent<RectTransform>().anchoredPosition.x < currentDrag.x))
         {
-            if ((i == 0 && updateList[i].transform.Find("Text").GetComponent<RectTransform>().anchoredPosition.x > currentDrag.x) ||
-                (i < updateList.Count - 1 && i > 0 &&
-                updateList[i].transform.Find("Text").GetComponent<RectTransform>().anchoredPosition.x < currentDrag.x &&
-                updateList[i + 1].transform.Find("Text").GetComponent<RectTransform>().anchoredPosition.x > currentDrag.x) ||
-                (i == updateList.Count - 1 && updateList[i].transform.Find("Text").GetComponent<RectTransform>().anchoredPosition.x < currentDrag.x))
-            {
-                Debug.Log("Inserting into " + i);
-                insert = true;
-                updateList.Insert(i, currentObj);
-                break;
-            }
+            Debug.Log("Adding");
+            if (!tokens[j].transform.Find("Text").GetComponent<Draggable>().isDragging())    updateList.Add(tokens[j]);
+            j++;
         }
-        if (insert) tokens = updateList;
-        else updateList.Add(currentObj);
+        updateList.Add(currentObj);
+        for (; j < tokens.Count; j++)
+        {
+            if (!tokens[j].transform.Find("Text").GetComponent<Draggable>().isDragging())    updateList.Add(tokens[j]);
+        }
+
+        tokens = updateList;
         SnapTokens();
     }
 
