@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -35,7 +36,10 @@ public class GameController : MonoBehaviour
             return;
         }
 
+        DontDestroyOnLoad(gameObject);
+
         GameStateResultEvent.AddListener(HandleGameStateResultEvent);
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void Start()
@@ -70,7 +74,21 @@ public class GameController : MonoBehaviour
 
         CurrentState = newState;
 
-        GameStateEnteredEvent enteredEvent = new GameStateEnteredEvent(CurrentState, targetDuration);
+        string sceneName = GameStateMapping.GetSceneName(CurrentState);
+        if (sceneName.Length > 0)
+        {
+            SceneManager.LoadScene(sceneName);
+        }
+        else
+        {
+            GameStateEnteredEvent enteredEvent = new GameStateEnteredEvent(CurrentState, targetDuration);
+            enteredEvent.Broadcast();
+        }
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        GameStateEnteredEvent enteredEvent = new GameStateEnteredEvent(CurrentState, 0.0f);
         enteredEvent.Broadcast();
     }
 

@@ -7,7 +7,7 @@ public class CentralControll : MonoBehaviour
     [SerializeField] GameObject everything;
     // [SerializeField] GameObject options;
     
-    void Start()
+    void Awake()
     {
         // everything.SetActive(false);
         GameStateEnteredEvent.AddListener(HandleGameStateEnteredEvent);
@@ -16,7 +16,7 @@ public class CentralControll : MonoBehaviour
     void OnDestroy()
     {
         GameStateEnteredEvent.RemoveListener(HandleGameStateEnteredEvent);
-        GameStateExitedEvent.AddListener(HandleGameStateExitEvent);
+        GameStateExitedEvent.RemoveListener(HandleGameStateExitEvent);
     }
 
 

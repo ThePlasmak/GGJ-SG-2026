@@ -22,10 +22,6 @@ public class FindABreakManager : MonoBehaviour
     {
         GameStateEnteredEvent.AddListener(HandleGameStateEnteredEvent);
         GameStateExitedEvent.AddListener(HandleGameStateExitedEvent);
-    }
-
-    private void Start()
-    {
         gameObject.SetActive(false);
     }
 
@@ -58,7 +54,7 @@ public class FindABreakManager : MonoBehaviour
             return;
         }
 
-        TotalDuration = ev.TargetDuration;
+        TotalDuration = 5.0f; //ev.TargetDuration;
         CurrentDuration = 0.0f;
 
         GenerateCharacters();
