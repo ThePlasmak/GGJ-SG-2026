@@ -34,8 +34,12 @@ public class FindABreakManager : MonoBehaviour
     private void Update()
     {
         CurrentDuration += Time.deltaTime;
+
+        if(TryInterject())
+        {
+            return;
+        }    
         UpdateSelectedCharacter();
-        TryInterject();
     }
 
     private void HandleGameStateEnteredEvent(GameStateEnteredEvent ev)
@@ -96,17 +100,24 @@ public class FindABreakManager : MonoBehaviour
         {
             CharacterRoot.GetChild(i).GetComponent<FindABreakCharacterScript>().SetHighlight(i == currentCharacter);
         }
+
+        if(currentCharacter >= TotalCharacterCount)
+        {
+            SendResult(false);
+        }
     }
 
-    private void TryInterject()
+    private bool TryInterject()
     {
         if(!(Mouse.current.leftButton.wasPressedThisFrame))
         {
-            return;
+            return false;
         }
 
         bool isWin = GetCurrentCharacter() == TargetCharacter;
         SendResult(isWin);
+
+        return true;
     }
 
     private int GetCurrentCharacter()
