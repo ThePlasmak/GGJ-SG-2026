@@ -39,7 +39,7 @@ public class GameController : MonoBehaviour
 
         CurrentState = newState;
 
-        GameStateExitedEvent enteredEvent = new GameStateExitedEvent(CurrentState);
+        GameStateEnteredEvent enteredEvent = new GameStateEnteredEvent(CurrentState);
         enteredEvent.Broadcast();
     }
 
