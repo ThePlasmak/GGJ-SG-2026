@@ -19,10 +19,12 @@ public class GameStateEnteredEvent : GlobalEvent<GameStateEnteredEvent>
 public class GameStateResultEvent : GlobalEvent<GameStateResultEvent>
 {
     public GameState TargetState { get; private set; }
+    public bool IsWin { get; private set; }
 
-    public GameStateResultEvent(GameState targetState)
+    public GameStateResultEvent(GameState targetState, bool isWin)
     {
         TargetState = targetState;
+        IsWin = isWin;
     }
 }
 
