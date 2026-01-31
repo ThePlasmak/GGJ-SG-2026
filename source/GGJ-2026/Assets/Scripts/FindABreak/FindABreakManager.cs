@@ -22,14 +22,14 @@ public class FindABreakManager : MonoBehaviour
     private void Awake()
     {
         GameStateEnteredEvent.AddListener(HandleGameStateEnteredEvent);
-        GameStateExitedEvent.AddListener(HandleGameStateExitedEvent);
+        //GameStateExitedEvent.AddListener(HandleGameStateExitedEvent);
         gameObject.SetActive(false);
     }
 
     private void OnDestroy()
     {
         GameStateEnteredEvent.RemoveListener(HandleGameStateEnteredEvent);
-        GameStateExitedEvent.RemoveListener(HandleGameStateExitedEvent);
+        //GameStateExitedEvent.RemoveListener(HandleGameStateExitedEvent);
     }
 
     private void Update()
@@ -73,14 +73,14 @@ public class FindABreakManager : MonoBehaviour
         gameObject.SetActive(true);
     }
 
-    private void HandleGameStateExitedEvent(GameStateExitedEvent ev)
-    {
-        if (ev.ExitedState != GameState.FindABreak)
-        {
-            return;
-        }
-        gameObject.SetActive(false);
-    }
+    //private void HandleGameStateExitedEvent(GameStateExitedEvent ev)
+    //{
+    //    if (ev.ExitedState != GameState.FindABreak)
+    //    {
+    //        return;
+    //    }
+    //    gameObject.SetActive(false);
+    //}
 
     private void GenerateCharacters()
     {
