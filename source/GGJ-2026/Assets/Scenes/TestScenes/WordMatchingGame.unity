@@ -468,7 +468,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22305c6507e4a2c438cc7db1168a02b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TotalHealth: 100
+  FailDamage: 10
+  SuccessHeal: 10
+  onHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
   DebugState: 0
+  DebugDuration: 0
   ForceToDebugState: 0
 --- !u!1 &1371959234
 GameObject:
