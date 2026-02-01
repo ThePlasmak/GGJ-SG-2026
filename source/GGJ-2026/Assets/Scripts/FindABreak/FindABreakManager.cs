@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class FindABreakManager : MonoBehaviour
 {
     [SerializeField] private FindABreakSpeakerScript Speaker;
+    [SerializeField] private GameObject WinDisplay;
     [SerializeField] private Transform CharacterRoot;
     [SerializeField] private GameObject CharacterPrefab;
     [SerializeField] private float DurationPerCharacter = 0.5f;
@@ -69,6 +70,8 @@ public class FindABreakManager : MonoBehaviour
             StopCoroutine(delayedResultCoroutine);
             delayedResultCoroutine = null;
         }
+
+        WinDisplay.SetActive(false);
 
         gameObject.SetActive(true);
     }
@@ -154,6 +157,7 @@ public class FindABreakManager : MonoBehaviour
             return;
         }
 
+        WinDisplay.SetActive(isWin);
         Speaker.SetCurrentState(isWin ? FindABreakSpeakerScript.State.Success : FindABreakSpeakerScript.State.Fail);
 
         delayedResultCoroutine = StartCoroutine(SendResultDelayed(isWin, delay));

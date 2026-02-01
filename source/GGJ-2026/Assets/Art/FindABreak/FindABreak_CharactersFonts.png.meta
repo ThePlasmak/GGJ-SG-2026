@@ -171,7 +171,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 36
+        width: 35
         height: 45
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -191,9 +191,9 @@ TextureImporter:
       name: FindABreak_CharactersFonts_1
       rect:
         serializedVersion: 2
-        x: 36
+        x: 35
         y: 0
-        width: 33
+        width: 35
         height: 45
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -213,9 +213,9 @@ TextureImporter:
       name: FindABreak_CharactersFonts_2
       rect:
         serializedVersion: 2
-        x: 69
+        x: 70
         y: 0
-        width: 36
+        width: 35
         height: 45
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -253,28 +253,6 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: FindABreak_CharactersFonts_4
-      rect:
-        serializedVersion: 2
-        x: 140
-        y: 0
-        width: 35
-        height: 45
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2d99a87ad60f6f146aeae2ef8d7f3171
-      internalID: -7118975706689123317
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -289,13 +267,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":43.0,"y":45.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":35.0,"y":45.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       FindABreak_CharactersFonts_0: 5782204169721991329
       FindABreak_CharactersFonts_1: -5104974865277083565
       FindABreak_CharactersFonts_2: -2499825874210376500
       FindABreak_CharactersFonts_3: -6612040397858158776
-      FindABreak_CharactersFonts_4: -7118975706689123317
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

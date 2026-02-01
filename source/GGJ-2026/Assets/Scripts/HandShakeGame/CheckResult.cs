@@ -42,6 +42,7 @@ public class CheckResult : MonoBehaviour
     }
     public void CheckForResult()
     {
+        FindAnyObjectByType<SFXManager>().Play("HandShakeBump");
         if (selectedHand == 0 && FindAnyObjectByType<ChangeEnemyHand>().GetChosen() == 0)
         {
             // print("0");

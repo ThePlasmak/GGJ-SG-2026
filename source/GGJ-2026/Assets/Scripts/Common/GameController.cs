@@ -22,7 +22,7 @@ public class GameController : MonoBehaviour
 
     public static GameController Instance { get; private set; } = null;
 
-    private GameState CurrentState { get; set; } = GameState.NotInitialized;
+    private GameState CurrentState = GameState.NotInitialized;
     public int ClearedMinigamesCount { get; private set; } = 0;
     public float CurrentHealth { get; private set; } = 100.0f;
     public float CurrentHealthPercent { get { return CurrentHealth / TotalHealth; } }
@@ -69,7 +69,10 @@ public class GameController : MonoBehaviour
         ResetStats();
         SetState(GameState.GameSelection, 0.0f);
     }
-
+    public void LoseGame()
+    {
+        SetState(GameState.LoseScreen,0.0f);
+    }
     public void SetState(GameState newState, float targetDuration)
     {
         if (CurrentState == newState)
@@ -115,8 +118,14 @@ public class GameController : MonoBehaviour
 
         if(ev.IsWin)
         {
+            FindAnyObjectByType<SFXManager>().Play("Sucess");
             ++ClearedMinigamesCount;
         }
+        else
+        {
+            FindAnyObjectByType<SFXManager>().Play("Fail");
+        }
+        
 
         if(ClearedMinigamesCount >= RequiredClearedMinigamesCount)
         {

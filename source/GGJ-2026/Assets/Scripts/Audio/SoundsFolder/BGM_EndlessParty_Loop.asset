@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83306d5c2c607774c82339b99a7b08eb, type: 3}
   m_Name: BGM_EndlessParty_Loop
   m_EditorClassIdentifier: Assembly-CSharp::Sounds
-  audioClip: {fileID: 0}
-  clipName: 
-  volume: 0
-  pitch: 0
+  audioClip: {fileID: 8300000, guid: 2fa82df0c62847f4c82da641bc1fd072, type: 3}
+  clipName: BGMEndless
+  volume: 1
+  pitch: 1.43
   source: {fileID: 0}
