@@ -6,11 +6,13 @@ using UnityEngine;
 public class GameStateEnteredEvent : GlobalEvent<GameStateEnteredEvent>
 {
     public GameState EnteredState { get; private set; }
+    public bool IsEnding { get; private set; }
     public float TargetDuration { get; private set; }
 
-    public GameStateEnteredEvent(GameState enteredState, float duration)
+    public GameStateEnteredEvent(GameState enteredState, bool isEnding, float duration)
     {
         EnteredState = enteredState;
+        IsEnding = isEnding;
         TargetDuration = duration;
     }
 }

@@ -1836,6 +1836,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   RequiredClearedMinigamesCount: 10
+  scriptedEndingMinigames: 050000000600000008000000
   DebugState: 0
   DebugDuration: 0
   ForceToDebugState: 0
