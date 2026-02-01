@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8844598637358601114}
   m_Layer: 0
-  m_Name: DontCollide_Minigame
+  m_Name: DontCollide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
