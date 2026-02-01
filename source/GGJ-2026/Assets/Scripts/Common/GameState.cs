@@ -2,6 +2,12 @@ public enum GameState
 {
     NotInitialized,
     StartMenu,
+    GameSelection,
 
-    // Add more states here
+    // Add minigame states here
+    HandShakeMatching,
+    FindABreak,
+
+    // should always be the last one
+    Count
 }

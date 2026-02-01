@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b2e73f8bd215f744a9707fd52a4f506d
+guid: d0796c0756723f64696b27158a641a05
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5656228833315216993
-    second: TempRockHand_0
+      213: -3035145885946220535
+    second: Handshake_HandHandShake_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TempRockHand_0
+      name: Handshake_HandHandShake_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 504
-        height: 249
+        width: 161
+        height: 141
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f91ace518d90181b0800000000000000
-      internalID: -5656228833315216993
+      spriteID: 900ffaac5eef0e5d0800000000000000
+      internalID: -3035145885946220535
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      TempRockHand_0: -5656228833315216993
+      Handshake_HandHandShake_0: -3035145885946220535
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
