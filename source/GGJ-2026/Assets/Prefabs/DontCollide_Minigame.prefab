@@ -343,12 +343,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2251734974804356532}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22305c6507e4a2c438cc7db1168a02b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameController
+  TotalHealth: 100
+  FailDamage: 10
+  SuccessHeal: 10
+  onHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  RequiredClearedMinigamesCount: 10
   DebugState: 3
+  DebugDuration: 0
   ForceToDebugState: 0
 --- !u!114 &1104328647881480303
 MonoBehaviour:

@@ -160,7 +160,7 @@ public class HallwayShuffleManager : MonoBehaviour
         feedbackText = isWin ? "PASSED! (WIN)" : "CRASHED! (LOSE)";
         feedbackColor = isWin ? Color.green : Color.red;
         
-        GameStateResultEvent resultEvent = new GameStateResultEvent(GameState.StartMenu, isWin);
+        GameStateResultEvent resultEvent = new GameStateResultEvent(isWin);
         resultEvent.Broadcast();
     }
 }
