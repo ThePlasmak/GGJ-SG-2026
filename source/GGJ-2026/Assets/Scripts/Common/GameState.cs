@@ -7,14 +7,13 @@ public enum GameState
     // Add more states here
     WinScreen,
     LoseScreen,
-    HandShakeMatching,
-    FindABreak,
-    HallwayShuffle,
-    HallwaySlide,
     GameSelection,
 
     // Add minigame states here
     
+    HandShakeMatching,
+    FindABreak,
+    HallwaySlide,
     WordJumbler,
     // should always be the last one
     Count

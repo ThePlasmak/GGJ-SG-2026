@@ -64,7 +64,7 @@ public class HallwayShuffleManager : MonoBehaviour
 
     private void HandleGameStateEnteredEvent(GameStateEnteredEvent ev)
     {
-        if (ev.EnteredState == GameState.HallwayShuffle)
+        if (ev.EnteredState == GameState.HallwaySlide)
         {
             StartGame();
         }
@@ -72,7 +72,7 @@ public class HallwayShuffleManager : MonoBehaviour
 
     private void HandleGameStateExitedEvent(GameStateExitedEvent ev)
     {
-        if (ev.ExitedState == GameState.HallwayShuffle)
+        if (ev.ExitedState == GameState.HallwaySlide)
         {
             StopGame();
         }

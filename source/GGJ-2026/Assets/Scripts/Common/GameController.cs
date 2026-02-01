@@ -22,7 +22,7 @@ public class GameController : MonoBehaviour
 
     public static GameController Instance { get; private set; } = null;
 
-    private GameState CurrentState { get; set; } = GameState.NotInitialized;
+    private GameState CurrentState = GameState.NotInitialized;
     public int ClearedMinigamesCount { get; private set; } = 0;
     public float CurrentHealth { get; private set; } = 100.0f;
     public float CurrentHealthPercent { get { return CurrentHealth / TotalHealth; } }
