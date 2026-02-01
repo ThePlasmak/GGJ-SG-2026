@@ -93,14 +93,7 @@ public class GameController : MonoBehaviour
         Debug.Log("Transitioning from newState to " + CurrentState.ToString());
         if (sceneName.Length > 0)
         {
-            if(SceneTransition.Instance != null)
-            {
-                SceneTransition.Instance.LoadScene(sceneName);
-            }
-            else
-            {
-                SceneManager.LoadScene(sceneName);
-            }
+            SceneManager.LoadScene(sceneName);
         }
         else
         {
