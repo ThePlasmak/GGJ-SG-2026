@@ -87,12 +87,8 @@ public class CheckResult : MonoBehaviour
             isWin=false;
         }
 
-        StartCoroutine(HandleResult());
-    }
-    IEnumerator HandleResult()
-    {
-        yield return new WaitForSeconds(5);
         GameStateResultEvent ev = new GameStateResultEvent(isWin);
         ev.Broadcast();
     }
+
 }

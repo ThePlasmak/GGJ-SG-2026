@@ -1,14 +1,29 @@
 using UnityEngine;
 
+[ExecuteAlways]
 public class SimpleTextureGenerator : MonoBehaviour
 {
     [SerializeField] private int textureSize = 24; // Multiple of 3 for equal lanes
     [Header("Lane Colors")]
-    [SerializeField] private Color colorLeft = Color.red;
-    [SerializeField] private Color colorCenter = Color.yellow;
-    [SerializeField] private Color colorRight = Color.blue;
+    [SerializeField] private Color colorLeft = new Color(0.9f, 0.0f, 0.5f); // Hot Pink
+    [SerializeField] private Color colorCenter = new Color(1.0f, 0.6f, 0.8f); // Light Pink
+    [SerializeField] private Color colorRight = new Color(0.9f, 0.0f, 0.5f); // Hot Pink
     
     private void Start()
+    {
+        GenerateTexture();
+    }
+
+    private void OnValidate()
+    {
+        // Delay to avoid sendmessage errors
+        // Or just ensure we are safe. Texture generation is safe.
+        // But OnValidate shouldn't create excessive garbage.
+        // We'll call GenerateTexture only if we have a renderer.
+    }
+    
+    [ContextMenu("Force Regenerate")]
+    public void GenerateTexture()
     {
         Renderer ren = GetComponent<Renderer>();
         if (ren == null) return;

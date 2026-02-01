@@ -47,8 +47,8 @@ public class HallwayShuffleManager : MonoBehaviour
             collisionLikely = diffX < 2.0f; // Threshold for "Same Lane"
 
             // 3. Trigger Dashes (High Speed for "Boom" effect)
-            player.DashForward(100f); 
-            opponent.DashForward(100f); 
+            player.DashForward(5f); 
+            opponent.DashForward(20f); 
         }
         
         // Wait for the action to happen
@@ -83,12 +83,59 @@ public class HallwayShuffleManager : MonoBehaviour
         isGameActive = false;
     }
 
+    [Header("Camera Settings")]
+    [SerializeField] private Vector3 fpsCameraStartRotation = new Vector3(0, 45f, 0); // Looking Diagonal
+    [SerializeField] private Vector3 fpsCameraEndRotation = Vector3.zero; // Center/Forward
+
     private void StartGame()
     {
         isGameActive = true;
         timer = gameDuration;
-        // Reset player/opponent positions if needed
+        
+        // Camera Setup: Start in FPS
+        // Camera Setup: Start in FPS
+        /* Camera Switcher logic removed - FPS Enforced Globally
+        if (CameraSwitcher.Instance != null)
+        {
+            CameraSwitcher.Instance.SetFPSActive(true);
+            lastSegmentIndex = -1;
+        }
+        */
+
+        // Rotate FPS Camera Animation
+        FirstPersonController player = FindObjectOfType<FirstPersonController>();
+        if (player != null)
+        {
+            Camera fpsCam = player.GetComponentInChildren<Camera>();
+            if (fpsCam != null)
+            {
+                // Start Coroutine to animate from StartRotation to EndRotation
+                // Duration is the length of the first segment (1/5th of game)
+                float segmentDuration = gameDuration / 5.0f;
+                StartCoroutine(AnimateCameraRotation(fpsCam.transform, fpsCameraStartRotation, fpsCameraEndRotation, segmentDuration));
+            }
+        }
+        
         Debug.Log("Hallway Shuffle Started!");
+    }
+
+    private System.Collections.IEnumerator AnimateCameraRotation(Transform camTransform, Vector3 startEuler, Vector3 endEuler, float duration)
+    {
+        float elapsed = 0f;
+        Quaternion startRot = Quaternion.Euler(startEuler);
+        Quaternion endRot = Quaternion.Euler(endEuler);
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / duration;
+            // Use smooth step for nicer easing
+            t = Mathf.SmoothStep(0f, 1f, t);
+            
+            camTransform.localRotation = Quaternion.Lerp(startRot, endRot, t);
+            yield return null;
+        }
+        camTransform.localRotation = endRot;
     }
 
     private void Start()
@@ -107,6 +154,9 @@ public class HallwayShuffleManager : MonoBehaviour
             StartGame();
         }
     }
+    
+    // Auto-Toggle State
+    private int lastSegmentIndex = -1;
 
     private void Update()
     {
@@ -114,8 +164,34 @@ public class HallwayShuffleManager : MonoBehaviour
 
         timer -= Time.deltaTime;
         
-        // Debug Timer UI (Optional, view in Inspector)
-        // Debug.Log($"Time: {timer}");
+        // Auto-Toggle Camera every 1/5th Duration
+        // Segment 0 (0-20%): FPS (Even)
+        // Segment 1 (20-40%): TopDown (Odd)
+        // Segment 2 (40-60%): FPS
+        // Segment 3 (60-80%): TopDown
+        // Segment 4 (80-100%): FPS
+        float interval = gameDuration / 5.0f;
+        float timePassed = gameDuration - timer;
+        int currentSegment = Mathf.FloorToInt(timePassed / interval);
+        
+        // Clamp for safety
+        if (currentSegment < 0) currentSegment = 0;
+        
+        if (currentSegment != lastSegmentIndex)
+        {
+            // Start with FPS (Segment 0), then alternate
+            bool showFps = (currentSegment % 2 == 0);
+            
+            /* Camera Switcher logic removed - FPS Enforced Globally
+            if (CameraSwitcher.Instance != null)
+            {
+                CameraSwitcher.Instance.SetFPSActive(showFps);
+                Debug.Log($"Time Segment {currentSegment}: Switched to {(showFps ? "FPS" : "TopDown")}");
+            }
+            */
+            lastSegmentIndex = currentSegment;
+            lastSegmentIndex = currentSegment;
+        }
 
         if (timer <= 0)
         {
@@ -130,37 +206,28 @@ public class HallwayShuffleManager : MonoBehaviour
 
     private void OnGUI()
     {
-        // Simple Debug UI
-        GUIStyle style = new GUIStyle();
-        style.fontSize = 50;
-        style.normal.textColor = feedbackColor;
-        style.alignment = TextAnchor.MiddleCenter;
-        
-        float w = Screen.width;
-        float h = Screen.height;
-        
-        if (isGameActive)
-        {
-            // GUI.Label(new Rect(0, h * 0.1f, w, 100), $"Time: {timer:F1}", style);
-        }
-        else if (!string.IsNullOrEmpty(feedbackText))
-        {
-            GUI.Label(new Rect(0, h * 0.4f, w, 100), feedbackText, style);
-        }
+        // Debug GUI Removed as requested
     }
 
     public void EndGame(bool isWin)
     {
-        // Double check flag to prevent multiple calls if triggered purely by time
-        // But here we want to allow EndGame to be called explicitly by DashSequence
+        // "Remove the winning and losing state"
+        // Instead of broadcasting a Result Event (which triggers Scene Transition), 
+        // we will just log it and maybe restart the loop or do nothing?
+        // User wants to remove the STATES.
         
-        Debug.Log($"Hallway Shuffle Ended. Win: {isWin}");
+        Debug.Log($"Hallway Shuffle 'Ended' (Win: {isWin}). Staying in scene.");
         
-        // Visual Feedback
-        feedbackText = isWin ? "PASSED! (WIN)" : "CRASHED! (LOSE)";
-        feedbackColor = isWin ? Color.green : Color.red;
+        // Remove visual feedback text
+        feedbackText = "";
         
-        GameStateResultEvent resultEvent = new GameStateResultEvent(isWin);
-        resultEvent.Broadcast();
+        // Use a simple restart logic if we want to keep playing?
+        // Or just let them sit there?
+        // "Is the eyes animation lagging behind..." implies they want to just keep watching the run usually.
+        // But if the run ends, they stop moving.
+        // Let's restart the game loop automatically without changing scenes.
+        
+        StopAllCoroutines();
+        StartGame(); // Immediate loop
     }
 }

@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/TestScenes/HandShakeGame.unity
     guid: 966bf3b2ec05ebd48bce2ef3f52ba10a
   - enabled: 1
-    path: Assets/Scenes/HallwaySlide.unity
+    path: Assets/Scenes/TestScenes/HallwaySlide.unity
     guid: 9df0e2ca2cc0f83b99319bbfd873e932
   - enabled: 1
     path: Assets/Scenes/TestScenes/WordJumbler.unity

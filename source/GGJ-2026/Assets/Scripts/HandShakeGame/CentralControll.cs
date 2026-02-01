@@ -5,6 +5,7 @@ public class CentralControll : MonoBehaviour
     // Start is called o
     // nce before the first execution of Update after the MonoBehaviour is created
     [SerializeField] GameObject everything;
+    [SerializeField] GameObject foreArm;
     // [SerializeField] GameObject options;
     
     void Awake()
@@ -12,6 +13,7 @@ public class CentralControll : MonoBehaviour
         // everything.SetActive(false);
         GameStateEnteredEvent.AddListener(HandleGameStateEnteredEvent);
         //GameStateExitedEvent.AddListener(HandleGameStateExitEvent);
+
     }
     void OnDestroy()
     {
@@ -26,6 +28,10 @@ public class CentralControll : MonoBehaviour
             print("2");
             everything.SetActive(true);
             // options.SetActive(true);
+        }
+        if (ev.EnteredState == GameState.HandShakeMatching && ev.IsEnding)
+        {
+            foreArm.GetComponent<SpriteRenderer>().color=new Color32(21,12,194,255);
         }
     }
     //void HandleGameStateExitEvent(GameStateExitedEvent ev)

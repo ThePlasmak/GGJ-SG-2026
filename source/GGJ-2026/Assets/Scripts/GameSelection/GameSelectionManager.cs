@@ -1,9 +1,11 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameSelectionManager : MonoBehaviour
 {
     private Queue<GameState> MinigameQueue = new Queue<GameState>();
+    private bool IsEndingSequence = false;
 
     private void Awake()
     {
@@ -26,7 +28,24 @@ public class GameSelectionManager : MonoBehaviour
             return;
         }
 
-        if(MinigameQueue.Count <= 0)
+        if(ev.IsEnding != IsEndingSequence)
+        {
+            if(IsEndingSequence)
+            {
+                AddMinigamesToQueue();
+            }
+            else
+            {
+                MinigameQueue.Clear();
+                foreach(GameState state in GameController.Instance.ScriptedEndingMiniGames)
+                {
+                    MinigameQueue.Enqueue(state);
+                }
+            }
+            IsEndingSequence = ev.IsEnding;
+        }
+
+        if(MinigameQueue.Count <= 0 && !IsEndingSequence)
         {
             AddMinigamesToQueue();
         }
@@ -66,6 +85,11 @@ public class GameSelectionManager : MonoBehaviour
 
     private void GoToNextMinigame()
     {
+        if(IsEndingSequence && MinigameQueue.Count <= 0)
+        {
+            GameController.Instance.SetState(GameState.WinScreen, 0.0f);
+            return;
+        }
         GameController.Instance.SetState(MinigameQueue.Dequeue(), 5.0f);
     }
 }

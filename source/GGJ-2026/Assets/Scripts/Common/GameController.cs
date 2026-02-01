@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -12,6 +13,9 @@ public class GameController : MonoBehaviour
 
     [Header("Win Condition")]
     [SerializeField] private float RequiredClearedMinigamesCount = 10;
+    [SerializeField] private List<GameState> scriptedEndingMinigames;
+
+    public List<GameState> ScriptedEndingMiniGames { get { return scriptedEndingMinigames; } }
 
     public UnityEvent OnHealthChanged { get { return onHealthChanged; } }
 
@@ -99,39 +103,42 @@ public class GameController : MonoBehaviour
         }
         else
         {
-            GameStateEnteredEvent enteredEvent = new GameStateEnteredEvent(CurrentState, targetDuration);
+            bool isEnding = ClearedMinigamesCount >= RequiredClearedMinigamesCount;
+            GameStateEnteredEvent enteredEvent = new GameStateEnteredEvent(CurrentState, isEnding, targetDuration);
             enteredEvent.Broadcast();
         }
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        GameStateEnteredEvent enteredEvent = new GameStateEnteredEvent(CurrentState, 0.0f);
+        bool isEnding = ClearedMinigamesCount >= RequiredClearedMinigamesCount;
+        GameStateEnteredEvent enteredEvent = new GameStateEnteredEvent(CurrentState, isEnding, 0.0f);
         enteredEvent.Broadcast();
     }
 
     private void HandleGameStateResultEvent(GameStateResultEvent ev)
     {
-        float healthChange = (ev.IsWin) ? SuccessHeal : -FailDamage;
-        CurrentHealth = Mathf.Clamp(CurrentHealth + healthChange, 0, TotalHealth);
-        OnHealthChanged.Invoke();
+        bool isEnding = ClearedMinigamesCount >= RequiredClearedMinigamesCount;
+
+        if (!isEnding)
+        {
+            float healthChange = (ev.IsWin) ? SuccessHeal : -FailDamage;
+            CurrentHealth = Mathf.Clamp(CurrentHealth + healthChange, 0, TotalHealth);
+            OnHealthChanged.Invoke();
+        }
 
         if(ev.IsWin)
         {
             FindAnyObjectByType<SFXManager>().Play("Sucess");
             ++ClearedMinigamesCount;
         }
-        else
+        else if(ev.IsWin==false)
         {
             FindAnyObjectByType<SFXManager>().Play("Fail");
         }
         
 
-        if(ClearedMinigamesCount >= RequiredClearedMinigamesCount)
-        {
-            SetState(GameState.WinScreen, 0.0f);
-        }
-        else if(CurrentHealth <= 0.0f)
+        if(CurrentHealth <= 0.0f)
         {
             SetState(GameState.LoseScreen, 0.0f);
         }
