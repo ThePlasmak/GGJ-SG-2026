@@ -325,6 +325,7 @@ MonoBehaviour:
   onHealthChanged:
     m_PersistentCalls:
       m_Calls: []
+  RequiredClearedMinigamesCount: 10
   DebugState: 4
   DebugDuration: 5
   ForceToDebugState: 0
