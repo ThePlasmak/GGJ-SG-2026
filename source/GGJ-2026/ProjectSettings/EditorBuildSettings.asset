@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HallwaySlide.unity
     guid: 9df0e2ca2cc0f83b99319bbfd873e932
+  - enabled: 1
+    path: Assets/Scenes/TestScenes/WordJumbler.unity
+    guid: d3a05379bef8b74489950b8582d05ae7
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
