@@ -31,6 +31,7 @@ public class EnemyHandMove : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         squiggle.SetActive(false);
-        particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        // particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);\
+            
     }
 }
