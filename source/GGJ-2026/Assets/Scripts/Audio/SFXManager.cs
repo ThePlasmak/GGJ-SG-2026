@@ -28,12 +28,17 @@ public class SFXManager : MonoBehaviour
             s.source.volume=s.volume;
             s.source.pitch=s.pitch;
         }
-        Play("BGMEndless")
+
     }
 
     public void Play(string name)
     {
         Sounds s = Array.Find(sounds,sound=>sound.clipName==name);
         s.source.Play();
+    }
+    public void Stop(string name)
+    {
+        Sounds s = Array.Find(sounds,sound=>sound.clipName==name);
+        s.source.Stop();
     }
 }

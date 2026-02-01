@@ -200,7 +200,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 22150780}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 916290297}
+        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+        m_MethodName: LoseGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &22150780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,7 +270,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &98848510
 RectTransform:
   m_ObjectHideFlags: 0
@@ -395,7 +407,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 400}
-  m_SizeDelta: {x: 598.84, y: 111.72}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &115747073
 MonoBehaviour:
@@ -529,7 +541,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &240058597
 RectTransform:
   m_ObjectHideFlags: 0
@@ -630,6 +642,66 @@ MonoBehaviour:
   EnableMode: 0
   TargetState: 3
   ExcludedList: 
+--- !u!1 &389033761
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 389033762}
+  - component: {fileID: 389033763}
+  m_Layer: 0
+  m_Name: SFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &389033762
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389033761}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 916290296}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &389033763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389033761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feb57d655a339bd4c98e5d247280cbab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SFXManager
+  sounds:
+  - {fileID: 11400000, guid: 71d3cecb15d584644ac00cb2bc0f91a2, type: 2}
+  - {fileID: 11400000, guid: 680382e0829261746901fc4c64c5412d, type: 2}
+  - {fileID: 11400000, guid: fdd120b68d38d9444b2ac2e7f6e748b1, type: 2}
+  - {fileID: 11400000, guid: be2cf5d6f7181954d952ae122e5721cd, type: 2}
+  - {fileID: 11400000, guid: 272f7c293b6a6b74f9e2a69bcf3466d1, type: 2}
+  - {fileID: 11400000, guid: 4f82d231bd375e04a90f5479fca3cb48, type: 2}
+  - {fileID: 11400000, guid: d4dfa91dcabcf4f46acc81718ca38f6a, type: 2}
+  - {fileID: 11400000, guid: 01de656ac87ffc54aab09430eaa392c2, type: 2}
+  - {fileID: 11400000, guid: 818fe325fcd4cff498266ce57c557388, type: 2}
+  - {fileID: 11400000, guid: b2bec1a3f9948bd40af65dcaee325c9f, type: 2}
+  - {fileID: 11400000, guid: eb878f32dcba12e43b2811ac698eacb5, type: 2}
+  - {fileID: 11400000, guid: f3318381bf8ef2d4eafdad05e0a23921, type: 2}
+  - {fileID: 11400000, guid: 036645733d2b8f544a0f1635f09e1cbb, type: 2}
+  - {fileID: 11400000, guid: b93c7a5f09eccd04f8022ad7562732d6, type: 2}
+  - {fileID: 11400000, guid: 55d0ca5f0144a524aadd52111bfe5052, type: 2}
 --- !u!1 &411824998
 GameObject:
   m_ObjectHideFlags: 0
@@ -1742,6 +1814,7 @@ Transform:
   - {fileID: 240058597}
   - {fileID: 1735980357}
   - {fileID: 1925791481}
+  - {fileID: 389033762}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &916290297
@@ -2151,7 +2224,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1162392063
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2454,7 +2527,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.000061035156, y: 399.9999}
-  m_SizeDelta: {x: 519.77, y: 111.72}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1550126985
 MonoBehaviour:
@@ -3213,7 +3286,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 400}
-  m_SizeDelta: {x: 563.96, y: 111.72}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1913599402
 MonoBehaviour:
@@ -3337,8 +3410,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1925791481}
-  - component: {fileID: 1925791483}
-  - component: {fileID: 1925791482}
+  - component: {fileID: 1925791486}
+  - component: {fileID: 1925791485}
   m_Layer: 0
   m_Name: Music
   m_TagString: Untagged
@@ -3361,7 +3434,65 @@ Transform:
   m_Children: []
   m_Father: {fileID: 916290296}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &1925791482
+--- !u!114 &1925791485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925791480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d46e1da4ce69daf44a6f4b9917eb03bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MusicManager
+  ResultPitch: 0
+  MinPitch: 1
+  MaxPitch: 3
+  PitchChangeSpeed: 1.5
+  HealthPercentToPitchCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.333
+      value: 0
+      inSlope: -0
+      outSlope: 0.6006006
+      tangentMode: 69
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.666
+      value: 0.2
+      inSlope: 0.6006006
+      outSlope: 2.3952098
+      tangentMode: 69
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2.3952098
+      outSlope: 2.3952098
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &1925791486
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3372,7 +3503,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 5e4453d7c7667c34998816d1bec3a08e, type: 3}
+  m_Resource: {fileID: 8300000, guid: 2fa82df0c62847f4c82da641bc1fd072, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.2
   m_Pitch: 1
@@ -3455,64 +3586,6 @@ AudioSource:
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!114 &1925791483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1925791480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d46e1da4ce69daf44a6f4b9917eb03bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MusicManager
-  ResultPitch: 0
-  MinPitch: 1
-  MaxPitch: 3
-  PitchChangeSpeed: 1.5
-  HealthPercentToPitchCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.333
-      value: 0
-      inSlope: -0
-      outSlope: 0.3003003
-      tangentMode: 69
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.666
-      value: 0.1
-      inSlope: 0.3003003
-      outSlope: 2.6946108
-      tangentMode: 69
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 2.6946108
-      outSlope: 2.6946108
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4

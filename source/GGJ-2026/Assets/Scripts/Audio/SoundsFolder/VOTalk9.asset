@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83306d5c2c607774c82339b99a7b08eb, type: 3}
-  m_Name: BGM_EndlessParty_Loop
+  m_Name: VOTalk9
   m_EditorClassIdentifier: Assembly-CSharp::Sounds
-  audioClip: {fileID: 8300000, guid: 2fa82df0c62847f4c82da641bc1fd072, type: 3}
-  clipName: BGMEndless
+  audioClip: {fileID: 8300000, guid: 11e963f95979e73468fa00ea52b81e1b, type: 3}
+  clipName: VOTalk9
   volume: 1
-  pitch: 1.43
+  pitch: 1
   source: {fileID: 0}
