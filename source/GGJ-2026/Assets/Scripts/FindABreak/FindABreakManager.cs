@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class FindABreakManager : MonoBehaviour
 {
     [SerializeField] private FindABreakSpeakerScript Speaker;
+    [SerializeField] private FindABreakSpeakerScript EndSpeaker;
     [SerializeField] private GameObject WinDisplay;
     [SerializeField] private Transform CharacterRoot;
     [SerializeField] private GameObject CharacterPrefab;
@@ -15,6 +16,7 @@ public class FindABreakManager : MonoBehaviour
     private float TotalDuration = 0.0f;
     private float CurrentDuration = 0.0f;
 
+    private FindABreakSpeakerScript CurrentSpeaker = null;
     private int TotalCharacterCount = 0;
     private int TargetCharacter = 0;
 
@@ -62,8 +64,12 @@ public class FindABreakManager : MonoBehaviour
         GenerateCharacters();
         UpdateSelectedCharacter();
 
-        Speaker.IdleSpriteUpdateDuration = DurationPerCharacter / 4;
-        Speaker.SetCurrentState(FindABreakSpeakerScript.State.Idle);
+        Speaker.gameObject.SetActive(!ev.IsEnding);
+        EndSpeaker.gameObject.SetActive(ev.IsEnding);
+        CurrentSpeaker = (ev.IsEnding) ? EndSpeaker : Speaker;
+
+        CurrentSpeaker.IdleSpriteUpdateDuration = DurationPerCharacter / 4;
+        CurrentSpeaker.SetCurrentState(FindABreakSpeakerScript.State.Idle);
 
         if(delayedResultCoroutine != null)
         {
@@ -158,7 +164,7 @@ public class FindABreakManager : MonoBehaviour
         }
 
         WinDisplay.SetActive(isWin);
-        Speaker.SetCurrentState(isWin ? FindABreakSpeakerScript.State.Success : FindABreakSpeakerScript.State.Fail);
+        CurrentSpeaker.SetCurrentState(isWin ? FindABreakSpeakerScript.State.Success : FindABreakSpeakerScript.State.Fail);
 
         delayedResultCoroutine = StartCoroutine(SendResultDelayed(isWin, delay));
     }
