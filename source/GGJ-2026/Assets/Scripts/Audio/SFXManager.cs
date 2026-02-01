@@ -28,7 +28,7 @@ public class SFXManager : MonoBehaviour
             s.source.volume=s.volume;
             s.source.pitch=s.pitch;
         }
-        Play("BGMEndless")
+        Play("BGMEndless");
     }
 
     public void Play(string name)
