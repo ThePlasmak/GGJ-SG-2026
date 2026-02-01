@@ -391,6 +391,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   RequiredClearedMinigamesCount: 10
+  scriptedEndingMinigames: 
   DebugState: 5
   DebugDuration: 0
   ForceToDebugState: 0
@@ -569,6 +570,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -2.59
       objectReference: {fileID: 0}
+    - target: {fileID: 8082302708697886456, guid: 47777da7b7a13b84ca00f58de5e9efa6, type: 3}
+      propertyPath: foreArm
+      value: 
+      objectReference: {fileID: 3577990740393659283}
     - target: {fileID: 8222624754908281307, guid: 47777da7b7a13b84ca00f58de5e9efa6, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.2
@@ -590,6 +595,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47777da7b7a13b84ca00f58de5e9efa6, type: 3}
+--- !u!1 &3577990740393659283 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6765127053158727632, guid: 47777da7b7a13b84ca00f58de5e9efa6, type: 3}
+  m_PrefabInstance: {fileID: 3577990740393659282}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
