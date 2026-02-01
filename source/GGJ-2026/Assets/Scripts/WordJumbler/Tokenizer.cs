@@ -5,6 +5,16 @@ using TMPro;
 public class Tokenizer : MonoBehaviour
 {
     [SerializeField] private GameObject tokenPrefab;
+    Color32[] colorList;
+
+    void Start()
+    {
+        colorList = new Color32[4];
+        colorList[0] = new Color32(255, 247, 138, 255);
+        colorList[1] = new Color32(210, 249, 146, 255);
+        colorList[2] = new Color32(174, 251, 153, 255);
+        colorList[3] = new Color32(22, 255, 182, 255);
+    }
 
     public List<GameObject> tokenize(string text)
     {
@@ -19,9 +29,11 @@ public class Tokenizer : MonoBehaviour
             TMP_Text textMesh = tokenObject.transform.Find("Text").GetComponent<TMP_Text>();
             textMesh.text = tokens[i];
             tokenObject.transform.Find("Text").GetComponent<Answer>().SetOrder(i);
+            textMesh.color = colorList[i];
             tokenObject.transform.GetComponent<Answer>().SetOrder(i);
             array.Add(tokenObject);
         }
+        
         return array;
     }
 }

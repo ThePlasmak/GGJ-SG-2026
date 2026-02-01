@@ -8,7 +8,7 @@ public class Swapper : MonoBehaviour, IConstants
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        tokens = GetComponent<Scrambler>().Scramble("Hi this is a test");
+        tokens = GetComponent<Scrambler>().Scramble("DAY WAS FINE THANKS.");
     }
 
     public List<GameObject> GetTokens()
@@ -61,7 +61,7 @@ public class Swapper : MonoBehaviour, IConstants
         for (int i = 0; i < tokens.Count; i++)
         {
             if (!tokens[i].transform.Find("Text").GetComponent<Draggable>().isDragging())
-            tokens[i].transform.Find("Text").GetComponent<RectTransform>().anchoredPosition = new Vector2(i * IConstants.STEP - ((tokens.Count * IConstants.STEP) / 2.0f), IConstants.DEPTH);
+            tokens[i].transform.Find("Text").GetComponent<RectTransform>().anchoredPosition = new Vector2(i * IConstants.STEP - ((tokens.Count * IConstants.STEP) / 2.0f) + IConstants.OFFSET, IConstants.DEPTH);
         }
     }
 }
