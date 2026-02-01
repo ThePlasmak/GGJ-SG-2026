@@ -46,7 +46,7 @@ public class CheckResult : MonoBehaviour
     }
     IEnumerator HandleResult()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(5);
         GameStateResultEvent ev = new GameStateResultEvent(isWin);
         ev.Broadcast();
     }

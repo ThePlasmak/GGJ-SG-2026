@@ -7,16 +7,16 @@ public class CentralControll : MonoBehaviour
     [SerializeField] GameObject everything;
     // [SerializeField] GameObject options;
     
-    void Start()
+    void Awake()
     {
         // everything.SetActive(false);
         GameStateEnteredEvent.AddListener(HandleGameStateEnteredEvent);
-        GameStateExitedEvent.AddListener(HandleGameStateExitEvent);
+        //GameStateExitedEvent.AddListener(HandleGameStateExitEvent);
     }
     void OnDestroy()
     {
         GameStateEnteredEvent.RemoveListener(HandleGameStateEnteredEvent);
-        GameStateExitedEvent.AddListener(HandleGameStateExitEvent);
+        //GameStateExitedEvent.RemoveListener(HandleGameStateExitEvent);
     }
 
 
@@ -28,11 +28,11 @@ public class CentralControll : MonoBehaviour
             // options.SetActive(true);
         }
     }
-    void HandleGameStateExitEvent(GameStateExitedEvent ev)
-    {
-        if(ev.ExitedState==GameState.HandShakeMatching){
-            print("2");
-            everything.SetActive(false);
-        }
-    }
+    //void HandleGameStateExitEvent(GameStateExitedEvent ev)
+    //{
+    //    if(ev.ExitedState==GameState.HandShakeMatching){
+    //        print("2");
+    //        everything.SetActive(false);
+    //    }
+    //}
 }

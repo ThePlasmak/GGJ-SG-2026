@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class GameController : MonoBehaviour
     [SerializeField] private float FailDamage = 10.0f;
     [SerializeField] private float SuccessHeal = 10.0f;
     [SerializeField] private UnityEvent onHealthChanged;
+
+    [Header("Win Condition")]
+    [SerializeField] private float RequiredClearedMinigamesCount = 10;
 
     public UnityEvent OnHealthChanged { get { return onHealthChanged; } }
 
@@ -35,13 +39,15 @@ public class GameController : MonoBehaviour
             return;
         }
 
+        DontDestroyOnLoad(gameObject);
+
         GameStateResultEvent.AddListener(HandleGameStateResultEvent);
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void Start()
     {
-        ResetStats();
-        SetState(GameState.GameSelection, 0.0f);
+        SetState(GameState.StartMenu, 0.0f);
     }
 
     private void OnDestroy()
@@ -58,6 +64,12 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void StartGame()
+    {
+        ResetStats();
+        SetState(GameState.GameSelection, 0.0f);
+    }
+
     public void SetState(GameState newState, float targetDuration)
     {
         if (CurrentState == newState)
@@ -70,7 +82,28 @@ public class GameController : MonoBehaviour
 
         CurrentState = newState;
 
-        GameStateEnteredEvent enteredEvent = new GameStateEnteredEvent(CurrentState, targetDuration);
+        string sceneName = GameStateMapping.GetSceneName(CurrentState);
+        if (sceneName.Length > 0)
+        {
+            if(SceneTransition.Instance != null)
+            {
+                SceneTransition.Instance.LoadScene(sceneName);
+            }
+            else
+            {
+                SceneManager.LoadScene(sceneName);
+            }
+        }
+        else
+        {
+            GameStateEnteredEvent enteredEvent = new GameStateEnteredEvent(CurrentState, targetDuration);
+            enteredEvent.Broadcast();
+        }
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        GameStateEnteredEvent enteredEvent = new GameStateEnteredEvent(CurrentState, 0.0f);
         enteredEvent.Broadcast();
     }
 
@@ -85,7 +118,18 @@ public class GameController : MonoBehaviour
             ++ClearedMinigamesCount;
         }
 
-        SetState(GameState.GameSelection, 0.0f);
+        if(ClearedMinigamesCount >= RequiredClearedMinigamesCount)
+        {
+            SetState(GameState.WinScreen, 0.0f);
+        }
+        else if(CurrentHealth <= 0.0f)
+        {
+            SetState(GameState.LoseScreen, 0.0f);
+        }
+        else
+        {
+            SetState(GameState.GameSelection, 0.0f);
+        }
     }
 
     private void ResetStats()
