@@ -19,7 +19,6 @@ public class EnemyHandMove : MonoBehaviour
         if (transform.position.x >= meetPointX)
         {
             transform.position-=new Vector3(moveSpeed*Time.deltaTime,0,0);
-            print("!");
         }
         // if (transform.position.x <= switchPointX && switched == false)
         // {

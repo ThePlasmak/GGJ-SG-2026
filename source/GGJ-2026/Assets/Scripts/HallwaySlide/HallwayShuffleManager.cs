@@ -211,23 +211,17 @@ public class HallwayShuffleManager : MonoBehaviour
 
     public void EndGame(bool isWin)
     {
-        // "Remove the winning and losing state"
-        // Instead of broadcasting a Result Event (which triggers Scene Transition), 
-        // we will just log it and maybe restart the loop or do nothing?
-        // User wants to remove the STATES.
+        Debug.Log($"Hallway Shuffle Ended. Win: {isWin}");
         
-        Debug.Log($"Hallway Shuffle 'Ended' (Win: {isWin}). Staying in scene.");
+        // Visual Feedback
+        feedbackText = isWin ? "PASSED! (WIN)" : "CRASHED! (LOSE)";
+        feedbackColor = isWin ? Color.green : Color.red;
         
-        // Remove visual feedback text
-        feedbackText = "";
+        // Broadcast Result to GameController to Handle State Transition
+        GameStateResultEvent resultEvent = new GameStateResultEvent(isWin);
+        resultEvent.Broadcast();
         
-        // Use a simple restart logic if we want to keep playing?
-        // Or just let them sit there?
-        // "Is the eyes animation lagging behind..." implies they want to just keep watching the run usually.
-        // But if the run ends, they stop moving.
-        // Let's restart the game loop automatically without changing scenes.
-        
-        StopAllCoroutines();
-        StartGame(); // Immediate loop
+        // Disable Game Loop
+        isGameActive = false;
     }
 }

@@ -38,11 +38,9 @@ public class Swapper : MonoBehaviour, IConstants
 
         List<GameObject> updateList = new List<GameObject>();
         int j = 0;
-        Debug.Log(tokens[j].transform.Find("Text").GetComponent<RectTransform>().anchoredPosition.x < currentDrag.x);
         while (j < tokens.Count && ((tokens[j].transform.Find("Text").GetComponent<Draggable>().isDragging()) ||
             tokens[j].transform.Find("Text").GetComponent<RectTransform>().anchoredPosition.x < currentDrag.x))
         {
-            Debug.Log("Adding");
             if (!tokens[j].transform.Find("Text").GetComponent<Draggable>().isDragging())    updateList.Add(tokens[j]);
             j++;
         }

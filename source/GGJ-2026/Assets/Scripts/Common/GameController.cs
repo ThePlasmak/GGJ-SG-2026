@@ -90,6 +90,7 @@ public class GameController : MonoBehaviour
         CurrentState = newState;
 
         string sceneName = GameStateMapping.GetSceneName(CurrentState);
+        Debug.Log("Transitioning from newState to " + CurrentState.ToString());
         if (sceneName.Length > 0)
         {
             if(SceneTransition.Instance != null)
@@ -116,8 +117,14 @@ public class GameController : MonoBehaviour
         enteredEvent.Broadcast();
     }
 
+    // Solution 1: Helpers for SceneTransition query
+    public bool IsFinalRound => ClearedMinigamesCount >= RequiredClearedMinigamesCount;
+    public bool IsGameLost => CurrentHealth <= 0.0f;
+    public bool? LastGameWon { get; private set; } = null; // Null = Start/Generic, True = Win, False = Lose
+
     private void HandleGameStateResultEvent(GameStateResultEvent ev)
     {
+        LastGameWon = ev.IsWin; // Track result
         bool isEnding = ClearedMinigamesCount >= RequiredClearedMinigamesCount;
 
         if (!isEnding)

@@ -33,7 +33,6 @@ public class AnswerChecker : MonoBehaviour
         if (sorted && !finished)
         {
             GameStateResultEvent result = new GameStateResultEvent(true);
-            Debug.Log("Sorted");
             result.Broadcast();
             finished = true;
         }
@@ -41,11 +40,8 @@ public class AnswerChecker : MonoBehaviour
         {
             finished = true;
             GameStateResultEvent result = new GameStateResultEvent(false);
-            Debug.Log("Sorted");
             result.Broadcast();
         }
-        else
-            Debug.Log("Not Sorted");
 
     }
 }

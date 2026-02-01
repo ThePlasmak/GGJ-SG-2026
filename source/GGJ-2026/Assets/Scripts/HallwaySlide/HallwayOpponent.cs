@@ -19,7 +19,8 @@ public class HallwayOpponent : MonoBehaviour
     [SerializeField] private SpriteRenderer eyesRenderer;
     [SerializeField] private Sprite bodySprite; // For manual assignment if needed
     [SerializeField] private Sprite eyesSprite;
-    
+    [SerializeField] private Color opponentTint = Color.yellow; // Added Tint
+
     [Header("Animation")]
     [SerializeField] private float jumpHeight = 0.5f;
     [SerializeField] private float jumpSpeed = 10f;
@@ -45,6 +46,10 @@ public class HallwayOpponent : MonoBehaviour
         // Disable Cube Mesh
         MeshRenderer mesh = GetComponent<MeshRenderer>();
         if (mesh != null) mesh.enabled = false;
+        
+        // Apply Tint
+        if(bodyRenderer != null) bodyRenderer.color = opponentTint;
+        if(eyesRenderer != null) eyesRenderer.color = opponentTint;
 
         currentZ = startZ;
         if(playerController != null)
