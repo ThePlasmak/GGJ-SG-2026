@@ -481,10 +481,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 661753800550098083, guid: 47777da7b7a13b84ca00f58de5e9efa6, type: 3}
-      propertyPath: particleSystem
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3423597831364279139, guid: 47777da7b7a13b84ca00f58de5e9efa6, type: 3}
       propertyPath: m_Name
       value: CentralControlHandShake
@@ -528,14 +524,6 @@ PrefabInstance:
     - target: {fileID: 4464683097398358056, guid: 47777da7b7a13b84ca00f58de5e9efa6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5804109716353628597, guid: 47777da7b7a13b84ca00f58de5e9efa6, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5804109716353628597, guid: 47777da7b7a13b84ca00f58de5e9efa6, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
