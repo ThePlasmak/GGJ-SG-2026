@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 436534277}
   - component: {fileID: 436534278}
   - component: {fileID: 436534279}
+  - component: {fileID: 436534280}
   m_Layer: 0
   m_Name: AnswerChecker
   m_TagString: Untagged
@@ -203,6 +204,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ea19ad0846aa424d8b544b21a2d6167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Swapper
+--- !u!114 &436534280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436534274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a15cbd0eb535a5041928c94358d67ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Timer
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,6 +487,7 @@ MonoBehaviour:
   onHealthChanged:
     m_PersistentCalls:
       m_Calls: []
+  RequiredClearedMinigamesCount: 10
   DebugState: 0
   DebugDuration: 0
   ForceToDebugState: 0

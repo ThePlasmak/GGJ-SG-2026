@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1287246a60b91c349b4b5a1ed7e4561a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Draggable
-  canvas: {fileID: 0}
+  canvas: {fileID: 2020841850689772542}
 --- !u!114 &2198157231279074218
 MonoBehaviour:
   m_ObjectHideFlags: 0
