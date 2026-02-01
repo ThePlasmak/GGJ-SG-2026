@@ -15,5 +15,5 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: 65bcd8749b951664c9b505cb2b19a4a0, type: 3}
   clipName: Fail
   volume: 1
-  pitch: 0.1
+  pitch: 1
   source: {fileID: 0}

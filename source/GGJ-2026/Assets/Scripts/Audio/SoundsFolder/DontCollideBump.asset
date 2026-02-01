@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Sounds
   audioClip: {fileID: 8300000, guid: 26b3c7bc00c2b3e429528e0e33c5694c, type: 3}
   clipName: DontCollideBump
-  volume: 0
-  pitch: 0.1
+  volume: 1
+  pitch: 1
   source: {fileID: 0}

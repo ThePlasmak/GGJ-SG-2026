@@ -15,5 +15,5 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: 2fa82df0c62847f4c82da641bc1fd072, type: 3}
   clipName: BGMEndless
   volume: 1
-  pitch: 1.43
+  pitch: 1
   source: {fileID: 0}

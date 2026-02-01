@@ -15,5 +15,5 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: 7de578347bbf13e4a961b071ed427c66, type: 3}
   clipName: HandShakeBump
   volume: 1
-  pitch: 0.1
+  pitch: 1
   source: {fileID: 0}
