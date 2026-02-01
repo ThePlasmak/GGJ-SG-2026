@@ -4,14 +4,17 @@ public enum GameState
 {
     NotInitialized,
     StartMenu,
+    HallwayShuffle,
+    // Add more states here
     WinScreen,
     LoseScreen,
+    HandShakeMatching,
+    FindABreak,
     GameSelection,
 
     // Add minigame states here
-    HandShakeMatching,
-    FindABreak,
-
+    
+    HallwaySlide,
     // should always be the last one
     Count
 }
@@ -24,6 +27,7 @@ public static class GameStateMapping
         { GameState.LoseScreen, "Main" },
         { GameState.HandShakeMatching, "HandShakeGame" },
         { GameState.FindABreak, "FindABreak" },
+        { GameState.HallwaySlide, "HallwaySlide" },
     };
 
     public static string GetSceneName(GameState state)
@@ -35,3 +39,4 @@ public static class GameStateMapping
         return "";
     }
 }
+
