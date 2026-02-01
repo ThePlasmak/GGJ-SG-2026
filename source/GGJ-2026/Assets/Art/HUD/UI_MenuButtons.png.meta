@@ -1,10 +1,76 @@
 fileFormatVersion: 2
-guid: de829300bd87bd241a2e04f321a2c9b2
+guid: 20e5dd1ab65ddf64797cf84d7958bb44
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7716793472127844301
-    second: FindABreak_Speech_0
+      213: -119812190434813949
+    second: UI_MenuButtons_0
+  - first:
+      213: 6907210385965472021
+    second: UI_MenuButtons_1
+  - first:
+      213: -4690943281216906845
+    second: UI_MenuButtons_2
+  - first:
+      213: 7115059829465281723
+    second: UI_MenuButtons_3
+  - first:
+      213: 5326657604525105399
+    second: UI_MenuButtons_4
+  - first:
+      213: -4949390735297478892
+    second: UI_MenuButtons_5
+  - first:
+      213: 2557582116676684197
+    second: UI_MenuButtons_6
+  - first:
+      213: -1417060279964393332
+    second: UI_MenuButtons_7
+  - first:
+      213: -1081607028417619367
+    second: UI_MenuButtons_8
+  - first:
+      213: -2719111654228927397
+    second: UI_MenuButtons_9
+  - first:
+      213: -3773520461446459809
+    second: UI_MenuButtons_10
+  - first:
+      213: 3396071538122282367
+    second: UI_MenuButtons_11
+  - first:
+      213: -5568778827654778088
+    second: UI_MenuButtons_12
+  - first:
+      213: -6017905521632810939
+    second: UI_MenuButtons_13
+  - first:
+      213: -3514597390744268903
+    second: UI_MenuButtons_14
+  - first:
+      213: -8385984722813526330
+    second: UI_MenuButtons_15
+  - first:
+      213: -3863347726833219373
+    second: UI_MenuButtons_16
+  - first:
+      213: 124243045018251930
+    second: UI_MenuButtons_17
+  - first:
+      213: 481477906903173433
+    second: UI_MenuButtons_18
+  - first:
+      213: -5657034818949049369
+    second: UI_MenuButtons_19
+  - first:
+      213: -9049348373464003008
+    second: UI_MenuButtons_20
+  - first:
+      213: 822760010970072756
+    second: UI_MenuButtons_21
+  - first:
+      213: -20053365624783854
+    second: UI_MenuButtons_22
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,13 +205,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FindABreak_Speech_0
+      name: UI_MenuButtons_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 45
-        height: 45
+        x: 9
+        y: 200
+        width: 321
+        height: 306
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,118 +220,140 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dcfbb3f07ce871b60800000000000000
-      internalID: 7716793472127844301
+      spriteID: 3081f559277565ef0800000000000000
+      internalID: -119812190434813949
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FindABreak_Speech_1
+      name: UI_MenuButtons_1
       rect:
         serializedVersion: 2
-        x: 45
-        y: 0
-        width: 45
-        height: 45
+        x: 357
+        y: 392
+        width: 176
+        height: 104
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 20a5fc5105b99794a9147cfa01373adb
-      internalID: 535965288
+      spriteID: 5195c5400475bdf50800000000000000
+      internalID: 6907210385965472021
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FindABreak_Speech_2
+      name: UI_MenuButtons_2
       rect:
         serializedVersion: 2
-        x: 90
-        y: 0
-        width: 45
-        height: 45
+        x: 357
+        y: 266
+        width: 176
+        height: 104
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 437d5e5fdc6ca0748a23ca966f76dc1a
-      internalID: 409899311
+      spriteID: 3a99f8d70fb66eeb0800000000000000
+      internalID: -4690943281216906845
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FindABreak_Speech_3
+      name: UI_MenuButtons_3
       rect:
         serializedVersion: 2
-        x: 135
-        y: 0
-        width: 45
-        height: 45
+        x: 18
+        y: 22
+        width: 188
+        height: 166
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 9485e75538ebebf41b26ae772a1fbc19
-      internalID: -1130272415
+      spriteID: bb4fdeab735cdb260800000000000000
+      internalID: 7115059829465281723
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FindABreak_Speech_4
+      name: UI_MenuButtons_4
       rect:
         serializedVersion: 2
-        x: 180
-        y: 0
-        width: 45
-        height: 45
+        x: 254
+        y: 23
+        width: 188
+        height: 166
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: c9a7c00847261ad47aadcfa6acf63d34
-      internalID: 1975731673
+      spriteID: 7f02ad59ed61ce940800000000000000
+      internalID: 5326657604525105399
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FindABreak_Speech_5
+      name: UI_MenuButtons_5
       rect:
         serializedVersion: 2
-        x: 225
-        y: 0
-        width: 45
-        height: 45
+        x: 470
+        y: 178
+        width: 49
+        height: 51
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 3e634e59ce8ca7f4b9138f0ed68407dc
-      internalID: -415469303
+      spriteID: 41ffbf7695b305bb0800000000000000
+      internalID: -4949390735297478892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MenuButtons_18
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 118
+        width: 49
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9398928fa9d8ea600800000000000000
+      internalID: 481477906903173433
       vertices: []
       indices: 
       edges: []
@@ -274,7 +362,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a6d409ef656df8a439f8cacd7cfaec48
+    spriteID: 11fd1ff31a75d9042ac24d4433f1b99b
     internalID: 0
     vertices: []
     indices: 
@@ -284,14 +372,31 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":45.0,"y":45.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":1,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":1,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      FindABreak_Speech_0: 7716793472127844301
-      FindABreak_Speech_1: 535965288
-      FindABreak_Speech_2: 409899311
-      FindABreak_Speech_3: -1130272415
-      FindABreak_Speech_4: 1975731673
-      FindABreak_Speech_5: -415469303
+      UI_MenuButtons_0: -119812190434813949
+      UI_MenuButtons_1: 6907210385965472021
+      UI_MenuButtons_10: -3773520461446459809
+      UI_MenuButtons_11: 3396071538122282367
+      UI_MenuButtons_12: -5568778827654778088
+      UI_MenuButtons_13: -6017905521632810939
+      UI_MenuButtons_14: -3514597390744268903
+      UI_MenuButtons_15: -8385984722813526330
+      UI_MenuButtons_16: -3863347726833219373
+      UI_MenuButtons_17: 124243045018251930
+      UI_MenuButtons_18: 481477906903173433
+      UI_MenuButtons_19: -5657034818949049369
+      UI_MenuButtons_2: -4690943281216906845
+      UI_MenuButtons_20: -9049348373464003008
+      UI_MenuButtons_21: 822760010970072756
+      UI_MenuButtons_22: -20053365624783854
+      UI_MenuButtons_3: 7115059829465281723
+      UI_MenuButtons_4: 5326657604525105399
+      UI_MenuButtons_5: -4949390735297478892
+      UI_MenuButtons_6: 2557582116676684197
+      UI_MenuButtons_7: -1417060279964393332
+      UI_MenuButtons_8: -1081607028417619367
+      UI_MenuButtons_9: -2719111654228927397
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

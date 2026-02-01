@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 12bb47c0ac2bd3c4a98fcf843cef9e53
+guid: 13f32562a2b79d548b490f11f6721a87
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2274543872727537260
-    second: FindABreak_Click_0
+      213: -5068966331085846935
+    second: Handshake_Buttons_0
+  - first:
+      213: 7652129504172565020
+    second: Handshake_Buttons_1
+  - first:
+      213: -4117862971497271197
+    second: Handshake_Buttons_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -97,19 +103,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -139,13 +132,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FindABreak_Click_0
+      name: Handshake_Buttons_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 35
-        height: 45
+        x: 6
+        y: 11
+        width: 85
+        height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +147,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c6657f7e99dc09f10800000000000000
-      internalID: 2274543872727537260
+      spriteID: 96686397af967a9b0800000000000000
+      internalID: -5068966331085846935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Handshake_Buttons_1
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 11
+        width: 83
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c12ed77cd33d13a60800000000000000
+      internalID: 7652129504172565020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Handshake_Buttons_2
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 9
+        width: 93
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 360bb2ed1796ad6c0800000000000000
+      internalID: -4117862971497271197
       vertices: []
       indices: 
       edges: []
@@ -164,7 +201,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -174,7 +211,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      FindABreak_Click_0: 2274543872727537260
+      Handshake_Buttons_0: -5068966331085846935
+      Handshake_Buttons_1: 7652129504172565020
+      Handshake_Buttons_2: -4117862971497271197
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

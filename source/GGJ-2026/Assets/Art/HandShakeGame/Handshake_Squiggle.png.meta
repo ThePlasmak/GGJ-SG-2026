@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 12bb47c0ac2bd3c4a98fcf843cef9e53
+guid: 42d72a5be0d364840bb2ada0f191445c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2274543872727537260
-    second: FindABreak_Click_0
+      213: 8339119729915358344
+    second: Handshake_Squiggle_0
+  - first:
+      213: -3937493908218809690
+    second: Handshake_Squiggle_1
+  - first:
+      213: -9190866066955917213
+    second: Handshake_Squiggle_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -97,19 +103,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -139,13 +132,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FindABreak_Click_0
+      name: Handshake_Squiggle_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 35
-        height: 45
+        x: 5
+        y: 6
+        width: 190
+        height: 189
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +147,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c6657f7e99dc09f10800000000000000
-      internalID: 2274543872727537260
+      spriteID: 88c6e0936318ab370800000000000000
+      internalID: 8339119729915358344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Handshake_Squiggle_1
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 6
+        width: 187
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a27a57f6263b59c0800000000000000
+      internalID: -3937493908218809690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Handshake_Squiggle_2
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 4
+        width: 191
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 368a6e4e10c737080800000000000000
+      internalID: -9190866066955917213
       vertices: []
       indices: 
       edges: []
@@ -164,7 +201,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -174,7 +211,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      FindABreak_Click_0: 2274543872727537260
+      Handshake_Squiggle_0: 8339119729915358344
+      Handshake_Squiggle_1: -3937493908218809690
+      Handshake_Squiggle_2: -9190866066955917213
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
