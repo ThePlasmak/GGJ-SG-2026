@@ -481,10 +481,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 331956919494387342, guid: 47777da7b7a13b84ca00f58de5e9efa6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 331956919494387342, guid: 47777da7b7a13b84ca00f58de5e9efa6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 331956919494387342, guid: 47777da7b7a13b84ca00f58de5e9efa6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 331956919494387342, guid: 47777da7b7a13b84ca00f58de5e9efa6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1389699224142313034, guid: 47777da7b7a13b84ca00f58de5e9efa6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4117862971497271197, guid: 13f32562a2b79d548b490f11f6721a87, type: 3}
     - target: {fileID: 3423597831364279139, guid: 47777da7b7a13b84ca00f58de5e9efa6, type: 3}
       propertyPath: m_Name
       value: CentralControlHandShake
       objectReference: {fileID: 0}
+    - target: {fileID: 3950578513787867827, guid: 47777da7b7a13b84ca00f58de5e9efa6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -5068966331085846935, guid: 13f32562a2b79d548b490f11f6721a87, type: 3}
     - target: {fileID: 4464683097398358056, guid: 47777da7b7a13b84ca00f58de5e9efa6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -524,6 +548,42 @@ PrefabInstance:
     - target: {fileID: 4464683097398358056, guid: 47777da7b7a13b84ca00f58de5e9efa6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6953785822282475589, guid: 47777da7b7a13b84ca00f58de5e9efa6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7652129504172565020, guid: 13f32562a2b79d548b490f11f6721a87, type: 3}
+    - target: {fileID: 7073272240429122921, guid: 47777da7b7a13b84ca00f58de5e9efa6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7073272240429122921, guid: 47777da7b7a13b84ca00f58de5e9efa6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7073272240429122921, guid: 47777da7b7a13b84ca00f58de5e9efa6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7073272240429122921, guid: 47777da7b7a13b84ca00f58de5e9efa6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 8222624754908281307, guid: 47777da7b7a13b84ca00f58de5e9efa6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8222624754908281307, guid: 47777da7b7a13b84ca00f58de5e9efa6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8222624754908281307, guid: 47777da7b7a13b84ca00f58de5e9efa6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 8222624754908281307, guid: 47777da7b7a13b84ca00f58de5e9efa6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.52
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
