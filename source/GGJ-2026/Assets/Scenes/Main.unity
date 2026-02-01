@@ -813,7 +813,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -20, y: -20}
-  m_SizeDelta: {x: 75, y: 75}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &423115210
 MonoBehaviour:
@@ -834,7 +834,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -844,7 +844,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: -7857892314174657700, guid: 751777f708f54004ab8485bcba27c411, type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -891,7 +891,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1661758502, guid: ce4fd329106996e448ae0825daea51ce, type: 3}
+  m_Sprite: {fileID: -4188801834110349931, guid: 751777f708f54004ab8485bcba27c411, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2219,6 +2219,7 @@ GameObject:
   - component: {fileID: 1162392065}
   - component: {fileID: 1162392064}
   - component: {fileID: 1162392067}
+  - component: {fileID: 1162392068}
   m_Layer: 5
   m_Name: Start_Canvas
   m_TagString: Untagged
@@ -2325,6 +2326,20 @@ MonoBehaviour:
   EnableMode: 0
   TargetState: 1
   ExcludedList: 
+--- !u!114 &1162392068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162392062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef2098f9f38c324ab780e1799534eb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChangeCursor
+  cursorDefault: {fileID: 2800000, guid: c56a90747ccc2094184869646e09d5ba, type: 3}
+  cursorHold: {fileID: 2800000, guid: 70c5304395434ac48bb5c3248f6a75cc, type: 3}
 --- !u!1 &1348630766
 GameObject:
   m_ObjectHideFlags: 0
@@ -3506,7 +3521,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 2fa82df0c62847f4c82da641bc1fd072, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3678,6 +3693,7 @@ GameObject:
   - component: {fileID: 2065704071}
   - component: {fileID: 2065704070}
   - component: {fileID: 2065704074}
+  - component: {fileID: 2065704075}
   m_Layer: 5
   m_Name: HUD_Canvas
   m_TagString: Untagged
@@ -3785,6 +3801,20 @@ MonoBehaviour:
   EnableMode: 1
   TargetState: 0
   ExcludedList: 00000000010000000200000003000000
+--- !u!114 &2065704075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065704069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef2098f9f38c324ab780e1799534eb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChangeCursor
+  cursorDefault: {fileID: 2800000, guid: c56a90747ccc2094184869646e09d5ba, type: 3}
+  cursorHold: {fileID: 2800000, guid: 70c5304395434ac48bb5c3248f6a75cc, type: 3}
 --- !u!1 &2146548745
 GameObject:
   m_ObjectHideFlags: 0

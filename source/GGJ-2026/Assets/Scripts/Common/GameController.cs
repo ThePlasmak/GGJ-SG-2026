@@ -132,7 +132,7 @@ public class GameController : MonoBehaviour
             FindAnyObjectByType<SFXManager>().Play("Sucess");
             ++ClearedMinigamesCount;
         }
-        else
+        else if(ev.IsWin==false)
         {
             FindAnyObjectByType<SFXManager>().Play("Fail");
         }

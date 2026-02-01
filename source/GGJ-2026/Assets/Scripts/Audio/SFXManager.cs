@@ -19,7 +19,6 @@ public class SFXManager : MonoBehaviour
             return;
 
         }
-        DontDestroyOnLoad(gameObject);
 
         foreach (Sounds s in sounds)
         {
