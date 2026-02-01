@@ -30,6 +30,9 @@ public class GameController : MonoBehaviour
     public int ClearedMinigamesCount { get; private set; } = 0;
     public float CurrentHealth { get; private set; } = 100.0f;
     public float CurrentHealthPercent { get { return CurrentHealth / TotalHealth; } }
+    public bool IsEnding { get { return ClearedMinigamesCount >= RequiredClearedMinigamesCount; } }
+    public bool WasEnding { get { return (ClearedMinigamesCount - ((IsLastWon.HasValue && IsLastWon.Value) ? 1 : 0)) >= RequiredClearedMinigamesCount; } }
+    public bool? IsLastWon { get; private set; } = null;
 
     private void Awake()
     {
@@ -93,34 +96,33 @@ public class GameController : MonoBehaviour
         Debug.Log("Transitioning from newState to " + CurrentState.ToString());
         if (sceneName.Length > 0)
         {
-            SceneManager.LoadScene(sceneName);
+            if(SceneTransition.Instance != null)
+            {
+                SceneTransition.Instance.LoadScene(sceneName);
+            }
+            else
+            {
+                SceneManager.LoadScene(sceneName);
+            }
         }
         else
         {
-            bool isEnding = ClearedMinigamesCount >= RequiredClearedMinigamesCount;
-            GameStateEnteredEvent enteredEvent = new GameStateEnteredEvent(CurrentState, isEnding, targetDuration);
+            GameStateEnteredEvent enteredEvent = new GameStateEnteredEvent(CurrentState, IsEnding, targetDuration);
             enteredEvent.Broadcast();
         }
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        bool isEnding = ClearedMinigamesCount >= RequiredClearedMinigamesCount;
-        GameStateEnteredEvent enteredEvent = new GameStateEnteredEvent(CurrentState, isEnding, 0.0f);
+        GameStateEnteredEvent enteredEvent = new GameStateEnteredEvent(CurrentState, IsEnding, 0.0f);
         enteredEvent.Broadcast();
     }
 
-    // Solution 1: Helpers for SceneTransition query
-    public bool IsFinalRound => ClearedMinigamesCount >= RequiredClearedMinigamesCount;
-    public bool IsGameLost => CurrentHealth <= 0.0f;
-    public bool? LastGameWon { get; private set; } = null; // Null = Start/Generic, True = Win, False = Lose
-
     private void HandleGameStateResultEvent(GameStateResultEvent ev)
     {
-        LastGameWon = ev.IsWin; // Track result
-        bool isEnding = ClearedMinigamesCount >= RequiredClearedMinigamesCount;
+        IsLastWon = ev.IsWin;
 
-        if (!isEnding)
+        if (!IsEnding)
         {
             float healthChange = (ev.IsWin) ? SuccessHeal : -FailDamage;
             CurrentHealth = Mathf.Clamp(CurrentHealth + healthChange, 0, TotalHealth);
@@ -150,6 +152,7 @@ public class GameController : MonoBehaviour
 
     private void ResetStats()
     {
+        IsLastWon = null;
         ClearedMinigamesCount = 0;
 
         CurrentHealth = TotalHealth;
