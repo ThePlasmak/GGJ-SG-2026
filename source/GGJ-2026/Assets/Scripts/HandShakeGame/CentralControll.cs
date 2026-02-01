@@ -31,7 +31,7 @@ public class CentralControll : MonoBehaviour
         }
         if (ev.EnteredState == GameState.HandShakeMatching && ev.IsEnding)
         {
-            foreArm.GetComponent<SpriteRenderer>().color=new Color32(21,12,194,255);
+            foreArm.GetComponent<SpriteRenderer>().color=new Color32(255,247,138,255);
         }
     }
     //void HandleGameStateExitEvent(GameStateExitedEvent ev)
