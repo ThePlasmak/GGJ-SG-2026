@@ -24,14 +24,9 @@ public class FindABreakSpeakerScript : MonoBehaviour
     private float CurrentIdleDuration { get; set; }
     private int CurrentIdleSpriteIndex { get; set; }
 
-    private void Awake()
-    {
-        Image = GetComponent<Image>();
-    }
-
     private void Update()
     {
-        if(CurrentState == State.Idle)
+        if(CurrentState == State.Idle && Image != null)
         {
             CurrentIdleDuration += Time.deltaTime;
             if(CurrentIdleDuration >=  IdleSpriteUpdateDuration)
@@ -46,6 +41,11 @@ public class FindABreakSpeakerScript : MonoBehaviour
 
     public void SetCurrentState(State newState)
     {
+        if(Image == null)
+        {
+            Image = GetComponent<Image>();
+        }
+
         CurrentState = newState;
         switch(CurrentState)
         {
