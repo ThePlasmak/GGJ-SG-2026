@@ -2,7 +2,7 @@ using UnityEngine;
 
 public interface IConstants
 {
-    const float STEP = 60.0f;
-    const float DEPTH = -90.0f;
-    const float OFFSET = -30;
+    const float STEP = 80.0f;
+    const float DEPTH = -80.0f;
+    const float OFFSET = -70;
 }

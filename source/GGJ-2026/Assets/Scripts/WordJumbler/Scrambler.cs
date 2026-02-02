@@ -29,7 +29,14 @@ public class Scrambler : MonoBehaviour, IConstants
         float [] order = new float[tokens.Count];
         for (int i = 0; i < tokens.Count; i++)
         {
-            order[i] = UnityEngine.Random.Range(0, 2000);
+            if (i == 0)
+            {
+                order[i] = 2000.0f;
+            }
+            else
+            {
+                order[i] = UnityEngine.Random.Range(0, 2000);
+            }
             RectTransform rectTransform = tokens[i].transform.Find("Text").GetComponent<RectTransform>();
 
             rectTransform.anchoredPosition = new Vector2((i * IConstants.STEP) - (tokens.Count * IConstants.STEP / 2.0f), IConstants.DEPTH);
