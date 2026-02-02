@@ -8,7 +8,7 @@ public class ChangeEnemyHand : MonoBehaviour
     int chosen;
     public void SetEnemyHand()
     {
-        chosen = UnityEngine.Random.Range(0,2);
+        chosen = UnityEngine.Random.Range(0,3);
 
         enemyHand.GetComponent<SpriteRenderer>().sprite=arr[chosen];
         // print("5")
